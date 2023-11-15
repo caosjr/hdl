@@ -137,11 +137,12 @@ module axi_pwm_gen #(
 
   // local parameters
 
+  localparam        PWMS = N_PWMS-1;
   localparam [31:0] CORE_VERSION = {16'h0002,     /* MAJOR */
                                      8'h00,       /* MINOR */
                                      8'h00};      /* PATCH */
   localparam [31:0] CORE_MAGIC = 32'h601a3471;    // PLSG
-  localparam [31:0] PULSE_WIDTH_G[1:16] = {PULSE_0_WIDTH,
+  localparam [31:0] PULSE_WIDTH_G[0:15] = {PULSE_0_WIDTH,
                                            PULSE_1_WIDTH,
                                            PULSE_2_WIDTH,
                                            PULSE_3_WIDTH,
@@ -158,7 +159,7 @@ module axi_pwm_gen #(
                                            PULSE_14_WIDTH,
                                            PULSE_15_WIDTH};
 
-  localparam [31:0] PULSE_PERIOD_G[1:16] = {PULSE_0_PERIOD,
+  localparam [31:0] PULSE_PERIOD_G[0:15] = {PULSE_0_PERIOD,
                                             PULSE_1_PERIOD,
                                             PULSE_2_PERIOD,
                                             PULSE_3_PERIOD,
@@ -175,7 +176,7 @@ module axi_pwm_gen #(
                                             PULSE_14_PERIOD,
                                             PULSE_15_PERIOD};
 
-  localparam [31:0] PULSE_OFFSET_G[1:16] =  {PULSE_0_OFFSET,
+  localparam [31:0] PULSE_OFFSET_G[0:15] =  {PULSE_0_OFFSET,
                                              PULSE_1_OFFSET,
                                              PULSE_2_OFFSET,
                                              PULSE_3_OFFSET,
@@ -194,7 +195,7 @@ module axi_pwm_gen #(
 
   // internal registers
 
-  reg   sync [1:N_PWMS];
+  reg [PWMS:0]    sync;
   reg   [31:0]    offset_cnt = 32'd0;
   reg             offset_alignment = 1'b0;
   reg             pause_cnt_d = 1'b0;
@@ -212,16 +213,15 @@ module axi_pwm_gen #(
   wire            up_wreq_s;
   wire   [ 13:0]  up_waddr_s;
   wire   [ 31:0]  up_wdata_s;
-  wire            pwm[1:N_PWMS];
-  wire   [ 31:0]  pwm_width_s[1:N_PWMS];
-  wire   [ 31:0]  pwm_period_s[1:N_PWMS];
-  wire   [ 31:0]  pwm_offset_s[1:N_PWMS];
-  wire   [ 31:0]  pwm_counter[1:N_PWMS];
+  wire   [ 15:0]  pwm;
+  wire   [ 31:0]  pwm_width_s[0:PWMS];
+  wire   [ 31:0]  pwm_period_s[0:PWMS];
+  wire   [ 31:0]  pwm_offset_s[0:PWMS];
+  wire   [ 15:0]  pwm_armed;
   wire            load_config_s;
   wire            pwm_gen_resetn;
   wire            ext_sync_s;
   wire            pause_cnt;
-  wire            offset_alignment_ready;
 
   assign up_clk = s_axi_aclk;
   assign up_rstn = s_axi_aresetn;
@@ -231,7 +231,7 @@ module axi_pwm_gen #(
     .ASYNC_CLK_EN (ASYNC_CLK_EN),
     .CORE_MAGIC (CORE_MAGIC),
     .CORE_VERSION (CORE_VERSION),
-    .N_PWMS (N_PWMS),
+    .N_PWMS (PWMS),
     .PULSE_WIDTH_G (PULSE_WIDTH_G),
     .PULSE_PERIOD_G (PULSE_PERIOD_G),
     .PULSE_OFFSET_G (PULSE_OFFSET_G)
@@ -288,90 +288,77 @@ module axi_pwm_gen #(
     end
 
     if (pwm_gen_resetn == 1'b0) begin
-      pause_cnt_d <= 1'b0;
       offset_alignment <= 1'b0;
     end else begin
-      pause_cnt_d <= pause_cnt_d;
-
       // when using external sync an offset alignment can be done only
       // after all pwm counters are paused(load_config)/reseated
       offset_alignment <= (load_config_s == 1'b1) ? 1'b1 :
                           offset_alignment &
-                          (ext_sync_s ? 1'b1 : !offset_alignment_ready);
+                          (ext_sync_s ? 1'b1 : !pause_cnt);
     end
   end
 
-  assign pause_cnt = (N_PWMS == 1) ? (pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 2 ? (pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 3 ? (pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 4 ? (pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[2] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 5 ? (pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 6 ? (pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 7 ? (pwm_counter[7] || pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 8 ? (pwm_counter[8] || pwm_counter[7] || pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 9 ? (pwm_counter[9] || pwm_counter[8] || pwm_counter[7] || pwm_counter[6] || pwm_counter[5] ||
-                     pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 10 ? (pwm_counter[10] || pwm_counter[9] || pwm_counter[8] || pwm_counter[7] || pwm_counter[6] ||
-                     pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 11 ? (pwm_counter[11] || pwm_counter[10] || pwm_counter[9] || pwm_counter[8] || pwm_counter[7] ||
-                     pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 12 ? (pwm_counter[12] || pwm_counter[11] || pwm_counter[10] || pwm_counter[9] || pwm_counter[8] ||
-                     pwm_counter[7] || pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 13 ? (pwm_counter[13] || pwm_counter[12] || pwm_counter[11] || pwm_counter[10] || pwm_counter[9] ||
-                     pwm_counter[8] || pwm_counter[7] || pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 14 ? (pwm_counter[14] || pwm_counter[13] || pwm_counter[12] || pwm_counter[11] || pwm_counter[10] ||
-                     pwm_counter[9] || pwm_counter[8] || pwm_counter[8] || pwm_counter[7] || pwm_counter[6] || pwm_counter[5] || pwm_counter[4] || 
-                     pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 15 ? (pwm_counter[15] || pwm_counter[14] || pwm_counter[13] || pwm_counter[12] || pwm_counter[11] ||
-                     pwm_counter[10] || pwm_counter[9] || pwm_counter[8] || pwm_counter[7] || pwm_counter[6] || pwm_counter[5] || pwm_counter[4] ||
-                     pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) :
-                     (N_PWMS == 16 ? (pwm_counter[16] || pwm_counter[15] || pwm_counter[14] || pwm_counter[13] || pwm_counter[12] ||
-                     pwm_counter[11] || pwm_counter[10] || pwm_counter[9] || pwm_counter[8] || pwm_counter[7] || pwm_counter[6] || pwm_counter[5] ||
-                     pwm_counter[4] || pwm_counter[3] || pwm_counter[2] || pwm_counter[1] ? 1'b1 : 1'b0) : 1'b0)))))))))))))));
-
-  assign offset_alignment_ready = !pause_cnt_d & pause_cnt;
-
+  assign pause_cnt = ((pwm_armed[1]  |
+                       pwm_armed[2]  |
+                       pwm_armed[3]  |
+                       pwm_armed[4]  |
+                       pwm_armed[5]  |
+                       pwm_armed[6]  |
+                       pwm_armed[7]  |
+                       pwm_armed[8]  |
+                       pwm_armed[9]  |
+                       pwm_armed[10] |
+                       pwm_armed[11] |
+                       pwm_armed[12] |
+                       pwm_armed[13] |
+                       pwm_armed[14] |
+                       pwm_armed[15] ) ? 1'b1 : 1'b0);
   genvar i;
   generate
-    for (i = 1; i <= N_PWMS; i = i + 1) begin
-     axi_pwm_gen_1  #(
-    .PULSE_WIDTH (PULSE_WIDTH_G[i]),
-    .PULSE_PERIOD (PULSE_PERIOD_G[i])
-    ) i_axi_pwm_gen_1 (
-      .clk (clk),
-      .rstn (pwm_gen_resetn),
-      .pulse_width (pwm_width_s[i]),
-      .pulse_period (pwm_period_s[i]),
-      .load_config (load_config_s),
-      .sync (sync[i]),
-      .pulse (pwm[i]),
-      .pulse_counter (pwm_counter[i]));
-     always @(posedge clk) begin
-       if (pwm_gen_resetn == 1'b0) begin
-         sync[i] <= 1'b1;
-       end else begin
-         sync[i] <= (offset_cnt == pwm_offset_s[i]) ? 1'b0 : 1'b1;
-       end
-     end
+    for (i = 0; i <= 15; i = i + 1) begin
+      if (i <= PWMS) begin
+        axi_pwm_gen_1  #(
+          .PULSE_WIDTH (PULSE_WIDTH_G[i]),
+          .PULSE_PERIOD (PULSE_PERIOD_G[i])
+        ) i_axi_pwm_gen_1 (
+          .clk (clk),
+          .rstn (pwm_gen_resetn),
+          .pulse_width (pwm_width_s[i]),
+          .pulse_period (pwm_period_s[i]),
+          .load_config (load_config_s),
+          .sync (sync[i]),
+          .pulse (pwm[i]),
+          .pulse_armed (pwm_armed[i]));
+        always @(posedge clk) begin
+          if (pwm_gen_resetn == 1'b0) begin
+            sync[i] <= 1'b1;
+          end else begin
+            sync[i] <= (offset_cnt == pwm_offset_s[i]) ? 1'b0 : 1'b1;
+          end
+        end
+      end else begin
+       assign pwm[i] = 1'b0;
+       assign pwm_armed[i] = 1'b0;
+      end
     end
   endgenerate
 
-  assign pwm_0 = (N_PWMS >= 1) ? pwm[1] : 1'b0;
-  assign pwm_1 = (N_PWMS >= 2) ? pwm[2] : 1'b0;
-  assign pwm_2 = (N_PWMS >= 3) ? pwm[3] : 1'b0;
-  assign pwm_3 = (N_PWMS >= 4) ? pwm[4] : 1'b0;
-  assign pwm_4 = (N_PWMS >= 5) ? pwm[5] : 1'b0;
-  assign pwm_5 = (N_PWMS >= 6) ? pwm[6] : 1'b0;
-  assign pwm_6 = (N_PWMS >= 7) ? pwm[7] : 1'b0;
-  assign pwm_7 = (N_PWMS >= 8) ? pwm[8] : 1'b0;
-  assign pwm_8 = (N_PWMS >= 9) ? pwm[9] : 1'b0;
-  assign pwm_9 = (N_PWMS >= 10) ? pwm[10] : 1'b0;
-  assign pwm_10 = (N_PWMS >= 11) ? pwm[11] : 1'b0;
-  assign pwm_11 = (N_PWMS >= 12) ? pwm[12] : 1'b0;
-  assign pwm_12 = (N_PWMS >= 13) ? pwm[13] : 1'b0;
-  assign pwm_13 = (N_PWMS >= 14) ? pwm[14] : 1'b0;
-  assign pwm_14 = (N_PWMS >= 15) ? pwm[15] : 1'b0;
-  assign pwm_15 = (N_PWMS >= 16) ? pwm[16] : 1'b0;
+  assign pwm_0 =  pwm[0];
+  assign pwm_1 =  pwm[1];
+  assign pwm_2 =  pwm[2];
+  assign pwm_3 =  pwm[3];
+  assign pwm_4 =  pwm[4];
+  assign pwm_5 =  pwm[5];
+  assign pwm_6 =  pwm[6];
+  assign pwm_7 =  pwm[7];
+  assign pwm_8 =  pwm[8];
+  assign pwm_9 =  pwm[9];
+  assign pwm_10 = pwm[10];
+  assign pwm_11 = pwm[11];
+  assign pwm_12 = pwm[12];
+  assign pwm_13 = pwm[13];
+  assign pwm_14 = pwm[14];
+  assign pwm_15 = pwm[15];
 
   up_axi #(
     .AXI_ADDRESS_WIDTH(16)

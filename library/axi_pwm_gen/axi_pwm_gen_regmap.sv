@@ -36,14 +36,14 @@
 
 module axi_pwm_gen_regmap #(
 
-  parameter  ID = 0,
-  parameter  CORE_MAGIC = 0,
-  parameter  CORE_VERSION = 0,
-  parameter  ASYNC_CLK_EN = 1,
-  parameter  N_PWMS = 1,
-  parameter [31:0] PULSE_WIDTH_G[1:16] = '{16{32'd0}},
-  parameter [31:0] PULSE_PERIOD_G[1:16] = '{16{32'd0}},
-  parameter [31:0] PULSE_OFFSET_G[1:16] = '{16{32'd0}}
+  parameter        ID = 0,
+  parameter        CORE_MAGIC = 0,
+  parameter        CORE_VERSION = 0,
+  parameter        ASYNC_CLK_EN = 1,
+  parameter        N_PWMS = 0,
+  parameter [31:0] PULSE_WIDTH_G[0:15] = '{16{32'd0}},
+  parameter [31:0] PULSE_PERIOD_G[0:15] = '{16{32'd0}},
+  parameter [31:0] PULSE_OFFSET_G[0:15] = '{16{32'd0}}
 ) (
 
   // external clock
@@ -54,9 +54,9 @@ module axi_pwm_gen_regmap #(
 
   output                  clk_out,
   output                  pwm_gen_resetn,
-  output      [31:0]      pwm_width[1:N_PWMS],
-  output      [31:0]      pwm_period[1:N_PWMS],
-  output      [31:0]      pwm_offset[1:N_PWMS],
+  output      [31:0]      pwm_width[0:N_PWMS],
+  output      [31:0]      pwm_period[0:N_PWMS],
+  output      [31:0]      pwm_offset[0:N_PWMS],
   output                  load_config,
 
   // processor interface
@@ -76,9 +76,9 @@ module axi_pwm_gen_regmap #(
   // internal registers
 
   reg     [31:0]  up_scratch = 'd0;
-  reg     [31:0]  up_pwm_width[1:N_PWMS] = PULSE_WIDTH_G[1:N_PWMS];
-  reg     [31:0]  up_pwm_period[1:N_PWMS] = PULSE_PERIOD_G[1:N_PWMS];
-  reg     [31:0]  up_pwm_offset[1:N_PWMS] = PULSE_OFFSET_G[1:N_PWMS];
+  reg     [31:0]  up_pwm_width[0:N_PWMS] = PULSE_WIDTH_G[0:N_PWMS];
+  reg     [31:0]  up_pwm_period[0:N_PWMS] = PULSE_PERIOD_G[0:N_PWMS];
+  reg     [31:0]  up_pwm_offset[0:N_PWMS] = PULSE_OFFSET_G[0:N_PWMS];
   reg             up_load_config = 1'b0;
   reg             up_reset = 1'b1;
 
@@ -88,9 +88,9 @@ module axi_pwm_gen_regmap #(
     if (up_rstn == 0) begin
       up_wack <= 'd0;
       up_scratch <= 'd0;
-      up_pwm_width = PULSE_WIDTH_G[1:N_PWMS];
-      up_pwm_period = PULSE_PERIOD_G[1:N_PWMS];
-      up_pwm_offset = PULSE_OFFSET_G[1:N_PWMS];
+      up_pwm_width = PULSE_WIDTH_G[0:N_PWMS];
+      up_pwm_period = PULSE_PERIOD_G[0:N_PWMS];
+      up_pwm_offset = PULSE_OFFSET_G[0:N_PWMS];
       up_load_config <= 1'b0;
       up_reset <= 1'b1;
     end else begin
@@ -104,14 +104,14 @@ module axi_pwm_gen_regmap #(
       end else begin
         up_load_config <= 1'b0;
       end
-      for (int i = 1; i <= N_PWMS; i++) begin
-        if ((up_wreq == 1'b1) && (up_waddr == 14'h10 + i - 1)) begin
+      for (int i = 0; i <= N_PWMS; i++) begin
+        if ((up_wreq == 1'b1) && (up_waddr == 14'h10 + i)) begin
           up_pwm_period[i] <= up_wdata;
         end
-        if ((up_wreq == 1'b1) && (up_waddr == 14'h20 + i - 1)) begin
+        if ((up_wreq == 1'b1) && (up_waddr == 14'h20 + i)) begin
           up_pwm_width[i] <= up_wdata;
         end
-        if ((up_wreq == 1'b1) && (up_waddr == 14'h30 + i - 1)) begin
+        if ((up_wreq == 1'b1) && (up_waddr == 14'h30 + i)) begin
           up_pwm_offset[i] <= up_wdata;
         end
       end
@@ -132,27 +132,17 @@ module axi_pwm_gen_regmap #(
             14'h2: up_rdata <= up_scratch;
             14'h3: up_rdata <= CORE_MAGIC;
             14'h4: up_rdata <= up_reset;
-            14'h5: up_rdata <= N_PWMS;
+            14'h5: up_rdata <= N_PWMS +1;
             default: up_rdata <= 0;
           endcase
-	end else if (up_raddr[13:4] == 10'd1) begin
-          if (up_raddr[3:0] < N_PWMS) begin
-            up_rdata <= up_pwm_period[up_raddr[3:0]+1];
-          end else begin
-            up_rdata <= 32'b0;
-          end
+        end else if (up_raddr[3:0] > N_PWMS) begin
+          up_rdata <= 32'b0;
+        end else if (up_raddr[13:4] == 10'd1) begin
+          up_rdata <= up_pwm_period[up_raddr[3:0]];
         end else if (up_raddr[13:4] == 10'd2) begin
-          if (up_raddr[3:0] < N_PWMS) begin
-            up_rdata <= up_pwm_width[up_raddr[3:0]+1];
-          end else begin
-            up_rdata <= 32'b0;
-          end
+          up_rdata <= up_pwm_width[up_raddr[3:0]];
         end else if (up_raddr[13:4] == 10'd3) begin
-          if (up_raddr[3:0] < N_PWMS) begin
-            up_rdata <= up_pwm_offset[up_raddr[3:0]+1];
-          end else begin
-            up_rdata <= 32'b0;
-          end
+          up_rdata <= up_pwm_offset[up_raddr[3:0]];
         end
       end else begin
         up_rdata <= 32'd0;
@@ -171,7 +161,7 @@ module axi_pwm_gen_regmap #(
       .rstn (pwm_gen_resetn),
       .rst ());
 
-    for (n = 1; n <= N_PWMS; n = n + 1) begin
+    for (n = 0; n <= N_PWMS; n = n + 1) begin
       sync_data #(
         .NUM_OF_BITS (96),
         .ASYNC_CLK (1))
