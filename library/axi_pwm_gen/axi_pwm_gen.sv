@@ -142,56 +142,56 @@ module axi_pwm_gen #(
                                      8'h00,       /* MINOR */
                                      8'h00};      /* PATCH */
   localparam [31:0] CORE_MAGIC = 32'h601a3471;    // PLSG
-  localparam [31:0] PULSE_WIDTH_G[0:15] = {PULSE_0_WIDTH,
-                                           PULSE_1_WIDTH,
-                                           PULSE_2_WIDTH,
-                                           PULSE_3_WIDTH,
-                                           PULSE_4_WIDTH,
-                                           PULSE_5_WIDTH,
-                                           PULSE_6_WIDTH,
-                                           PULSE_7_WIDTH,
-                                           PULSE_8_WIDTH,
-                                           PULSE_9_WIDTH,
-                                           PULSE_10_WIDTH,
-                                           PULSE_11_WIDTH,
-                                           PULSE_12_WIDTH,
-                                           PULSE_13_WIDTH,
-                                           PULSE_14_WIDTH,
-                                           PULSE_15_WIDTH};
+  localparam reg [31:0] PULSE_WIDTH_G[15:0] = '{PULSE_0_WIDTH,
+                                                PULSE_1_WIDTH,
+                                                PULSE_2_WIDTH,
+                                                PULSE_3_WIDTH,
+                                                PULSE_4_WIDTH,
+                                                PULSE_5_WIDTH,
+                                                PULSE_6_WIDTH,
+                                                PULSE_7_WIDTH,
+                                                PULSE_8_WIDTH,
+                                                PULSE_9_WIDTH,
+                                                PULSE_10_WIDTH,
+                                                PULSE_11_WIDTH,
+                                                PULSE_12_WIDTH,
+                                                PULSE_13_WIDTH,
+                                                PULSE_14_WIDTH,
+                                                PULSE_15_WIDTH};
 
-  localparam [31:0] PULSE_PERIOD_G[0:15] = {PULSE_0_PERIOD,
-                                            PULSE_1_PERIOD,
-                                            PULSE_2_PERIOD,
-                                            PULSE_3_PERIOD,
-                                            PULSE_4_PERIOD,
-                                            PULSE_5_PERIOD,
-                                            PULSE_6_PERIOD,
-                                            PULSE_7_PERIOD,
-                                            PULSE_8_PERIOD,
-                                            PULSE_9_PERIOD,
-                                            PULSE_10_PERIOD,
-                                            PULSE_11_PERIOD,
-                                            PULSE_12_PERIOD,
-                                            PULSE_13_PERIOD,
-                                            PULSE_14_PERIOD,
-                                            PULSE_15_PERIOD};
+  localparam reg [31:0] PULSE_PERIOD_G[0:15] = '{PULSE_0_PERIOD,
+                                                 PULSE_1_PERIOD,
+                                                 PULSE_2_PERIOD,
+                                                 PULSE_3_PERIOD,
+                                                 PULSE_4_PERIOD,
+                                                 PULSE_5_PERIOD,
+                                                 PULSE_6_PERIOD,
+                                                 PULSE_7_PERIOD,
+                                                 PULSE_8_PERIOD,
+                                                 PULSE_9_PERIOD,
+                                                 PULSE_10_PERIOD,
+                                                 PULSE_11_PERIOD,
+                                                 PULSE_12_PERIOD,
+                                                 PULSE_13_PERIOD,
+                                                 PULSE_14_PERIOD,
+                                                 PULSE_15_PERIOD};
 
-  localparam [31:0] PULSE_OFFSET_G[0:15] =  {PULSE_0_OFFSET,
-                                             PULSE_1_OFFSET,
-                                             PULSE_2_OFFSET,
-                                             PULSE_3_OFFSET,
-                                             PULSE_4_OFFSET,
-                                             PULSE_5_OFFSET,
-                                             PULSE_6_OFFSET,
-                                             PULSE_7_OFFSET,
-                                             PULSE_8_OFFSET,
-                                             PULSE_9_OFFSET,
-                                             PULSE_10_OFFSET,
-                                             PULSE_11_OFFSET,
-                                             PULSE_12_OFFSET,
-                                             PULSE_13_OFFSET,
-                                             PULSE_14_OFFSET,
-                                             PULSE_15_OFFSET};
+  localparam reg [31:0] PULSE_OFFSET_G[0:15] = '{PULSE_0_OFFSET,
+                                                 PULSE_1_OFFSET,
+                                                 PULSE_2_OFFSET,
+                                                 PULSE_3_OFFSET,
+                                                 PULSE_4_OFFSET,
+                                                 PULSE_5_OFFSET,
+                                                 PULSE_6_OFFSET,
+                                                 PULSE_7_OFFSET,
+                                                 PULSE_8_OFFSET,
+                                                 PULSE_9_OFFSET,
+                                                 PULSE_10_OFFSET,
+                                                 PULSE_11_OFFSET,
+                                                 PULSE_12_OFFSET,
+                                                 PULSE_13_OFFSET,
+                                                 PULSE_14_OFFSET,
+                                                 PULSE_15_OFFSET};
 
   // internal registers
 
@@ -315,7 +315,7 @@ module axi_pwm_gen #(
                        pwm_armed[15] ) ? 1'b1 : 1'b0);
   genvar i;
   generate
-    for (i = 0; i <= 15; i = i + 1) begin
+    for (i = 0; i <= 15; i = i + 1) begin: pwm_cnt
       if (i <= PWMS) begin
         axi_pwm_gen_1  #(
           .PULSE_WIDTH (PULSE_WIDTH_G[i]),

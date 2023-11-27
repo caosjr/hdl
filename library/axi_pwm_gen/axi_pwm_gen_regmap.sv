@@ -36,14 +36,14 @@
 
 module axi_pwm_gen_regmap #(
 
-  parameter        ID = 0,
-  parameter        CORE_MAGIC = 0,
-  parameter        CORE_VERSION = 0,
-  parameter        ASYNC_CLK_EN = 1,
-  parameter        N_PWMS = 0,
-  parameter [31:0] PULSE_WIDTH_G[0:15] = '{16{32'd0}},
-  parameter [31:0] PULSE_PERIOD_G[0:15] = '{16{32'd0}},
-  parameter [31:0] PULSE_OFFSET_G[0:15] = '{16{32'd0}}
+  parameter            ID = 0,
+  parameter            CORE_MAGIC = 0,
+  parameter            CORE_VERSION = 0,
+  parameter            ASYNC_CLK_EN = 1,
+  parameter            N_PWMS = 0,
+  parameter reg [31:0] PULSE_WIDTH_G[0:15]  = '{16{32'd0}},
+  parameter reg [31:0] PULSE_PERIOD_G[0:15] = '{16{32'd0}},
+  parameter reg [31:0] PULSE_OFFSET_G[0:15] = '{16{32'd0}}
 ) (
 
   // external clock
@@ -161,7 +161,7 @@ module axi_pwm_gen_regmap #(
       .rstn (pwm_gen_resetn),
       .rst ());
 
-    for (n = 0; n <= N_PWMS; n = n + 1) begin
+    for (n = 0; n <= N_PWMS; n = n + 1) begin: up_to_adc_cdc
       sync_data #(
         .NUM_OF_BITS (96),
         .ASYNC_CLK (1))
@@ -189,7 +189,7 @@ module axi_pwm_gen_regmap #(
 
     assign clk_out = up_clk;
     assign pwm_gen_resetn = ~up_reset;
-    for (n = 1; n <= N_PWMS; n = n + 1) begin
+    for (n = 0; n <= N_PWMS; n = n + 1) begin: up_cd
       assign pwm_period[n] = up_pwm_period[n];
       assign pwm_width[n] = up_pwm_width[n];
       assign pwm_offset[n] = up_pwm_offset[n];
