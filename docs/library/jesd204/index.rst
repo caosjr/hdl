@@ -1,5 +1,13 @@
+.. _jesd204_interface_framework:
+
 JESD204 Interface Framework
 ===========================
+
+.. toctree::
+   :hidden:
+
+   AXI ADXCV<axi_adxcvr>
+   
 
 The JESD204, JESD204A, JESD204B and the JESD204C data converter serial interface
 standard was created through the JEDEC committee to standardize and reduce the
@@ -82,7 +90,7 @@ Physical layer peripherals are responsible for interfacing and configuring the
 high-speed serial transceivers. Currently we have support for GTXE2, GTHE3,
 GTHE4, GTYE4 for Xilinx and Arria 10 transceivers for Intel.
 
-*  :dokuwiki:`AXI_ADXCVR <resources/fpga/docs/axi_adxcvr>`: JESD204B Gigabit 
+*  :ref:`jesd204_interface_framework axi`: JESD204B Gigabit 
    Transceiver Register Configuration Peripheral
 *  :dokuwiki:`UTIL_ADXCVR <resources/fpga/docs/util_xcvr>`: JESD204B Gigabit 
    Transceiver Interface Peripheral for Xilinx FPGAs
@@ -324,112 +332,112 @@ Technical Articles
 JESD204B Rapid Prototyping Platforms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `EVAL-ADRV9371 <adi>EVAL-ADRV9371>`__ (`User
-   Guide </resources/eval/user-guides/mykonos>`__)
--  `EVAL-ADRV9008-9009 <adi>EVAL-ADRV9008-9009>`__ (`User
-   Guide </resources/eval/user-guides/adrv9009>`__)
--  ADRV9009-ZU11EG (`User
-   Guide </resources/eval/user-guides/adrv9009-zu11eg>`__)
--  `AD-FMCJESDADC1-EBZ <adi>AD-FMCJESDADC1-EBZ>`__
--  `AD-FMCOMMS11-EBZ <adi>AD-FMCOMMS11-EBZ>`__ (`User
-   Guide </resources/eval/user-guides/ad-fmcomms11-ebz>`__)
--  `AD-FMCADC2-EBZ <adi>AD-FMCADC2-EBZ>`__
--  `AD-FMCADC3-EBZ <adi>EVAL-AD-FMCADC3-EBZ>`__
--  `AD-FMCADC4-EBZ <adi>EVAL-AD-FMCADC4-EBZ>`__\ (retired)
--  `AD-FMCDAQ2-EBZ <adi>AD-FMCDAQ2-EBZ>`__ (`User
-   Guide </resources/eval/user-guides/ad-fmcdaq2-ebz>`__)
--  `EVAL-FMCDAQ3-EBZ <adi>EVAL-FMCDAQ3-EBZ>`__ (`User
-   Guide </resources/eval/user-guides/ad-fmcdaq3-ebz>`__)
--  `EVAL-AD917X <adi>EVAL-AD917X>`__
+-  :adi:`EVAL-ADRV9371 <EVAL-ADRV9371>` :dokuwiki:`(User 
+   Guide) <resources/eval/user-guides/mykonos>`
+-  :adi:`EVAL-ADRV9008-9009 <EVAL-ADRV9008-9009>` :dokuwiki:`(User
+   Guide) <resources/eval/user-guides/adrv9009>`
+-  ADRV9009-ZU11EG :dokuwiki:`(User
+   Guide) <resources/eval/user-guides/adrv9009-zu11eg>`
+-  :adi:`AD-FMCJESDADC1-EBZ <AD-FMCJESDADC1-EBZ>`
+-  :adi:`AD-FMCOMMS11-EBZ <AD-FMCOMMS11-EBZ>` :dokuwiki:`(User
+   Guide) <resources/eval/user-guides/ad-fmcomms11-ebz>`
+-  :adi:`AD-FMCADC2-EBZ <AD-FMCADC2-EBZ>`
+-  :adi:`AD-FMCADC3-EBZ <EVAL-AD-FMCADC3-EBZ>`
+-  :adi:`AD-FMCADC4-EBZ <EVAL-AD-FMCADC4-EBZ>`\ (retired)
+-  :adi:`AD-FMCDAQ2-EBZ <AD-FMCDAQ2-EBZ>` :dokuwiki:`(User
+   Guide) <resources/eval/user-guides/ad-fmcdaq2-ebz>`
+-  :adi:`EVAL-FMCDAQ3-EBZ <EVAL-FMCDAQ3-EBZ>` :dokuwiki:`(User
+   Guide) <resources/eval/user-guides/ad-fmcdaq3-ebz>`
+-  :adi:`EVAL-AD917X <EVAL-AD917X>`
 
 JESD204B Analog-to-Digital Converters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `AD6673 <adi>AD6673>`__: 80 MHz Bandwidth, Dual IF Receiver
--  `AD6674 <adi>AD6674>`__: 385 MHz BW IF Diversity Receiver
--  `AD6676 <adi>AD6676>`__: Wideband IF Receiver Subsystem
--  `AD6677 <adi>AD6677>`__: 80 MHz Bandwidth, IF Receiver
--  `AD6684 <adi>AD6684>`__: 135 MHz Quad IF Receiver
--  `AD6688 <adi>AD6688>`__: RF Diversity and 1.2GHz BW Observation Receiver
--  `AD9208 <adi>AD9208>`__: 14-Bit, 3GSPS, JESD204B, Dual Analog-to-Digital
+-  :adi:`AD6673 <AD6673>`: 80 MHz Bandwidth, Dual IF Receiver
+-  :adi:`AD6674 <AD6674>`: 385 MHz BW IF Diversity Receiver
+-  :adi:`AD6676 <AD6676>`: Wideband IF Receiver Subsystem
+-  :adi:`AD6677 <AD6677>`: 80 MHz Bandwidth, IF Receiver
+-  :adi:`AD6684 <AD6684>`: 135 MHz Quad IF Receiver
+-  :adi:`AD6688 <AD6688>`: RF Diversity and 1.2GHz BW Observation Receiver
+-  :adi:`AD9208 <AD9208>`: 14-Bit, 3GSPS, JESD204B, Dual Analog-to-Digital
    Converter
--  `AD9234 <adi>AD9234>`__: 12-Bit, 1 GSPS/500 MSPS JESD204B, Dual
+-  :adi:`AD9234 <AD9234>`: 12-Bit, 1 GSPS/500 MSPS JESD204B, Dual
    Analog-to-Digital Converter
--  `AD9250 <adi>AD9250>`__: 14-Bit, 170 MSPS/250 MSPS, JESD204B, Dual
+-  :adi:`AD9250 <AD9250>`: 14-Bit, 170 MSPS/250 MSPS, JESD204B, Dual
    Analog-to-Digital Converter
--  `AD9625 <adi>AD9625>`__: 12-Bit, 2.6 GSPS/2.5 GSPS/2.0 GSPS, 1.3 V/2.5 V
+-  :adi:`AD9625 <AD9625>`: 12-Bit, 2.6 GSPS/2.5 GSPS/2.0 GSPS, 1.3 V/2.5 V
    Analog-to-Digital Converter
--  `AD9656 <adi>AD9656>`__: Quad, 16-Bit, 125 MSPS JESD204B 1.8 V
+-  :adi:`AD9656 <AD9656>`: Quad, 16-Bit, 125 MSPS JESD204B 1.8 V
    Analog-to-Digital Converter
--  `AD9680 <adi>AD9680>`__: 14-Bit, 1.25 GSPS/1 GSPS/820 MSPS/500 MSPS JESD204B,
+-  :adi:`AD9680 <AD9680>`: 14-Bit, 1.25 GSPS/1 GSPS/820 MSPS/500 MSPS JESD204B,
    Dual Analog-to-Digital Converter
--  `AD9683 <adi>AD9683>`__: 14-Bit, 170 MSPS/250 MSPS, JESD204B,
+-  :adi:`AD9683 <AD9683>`: 14-Bit, 170 MSPS/250 MSPS, JESD204B,
    Analog-to-Digital Converter
--  `AD9690 <adi>AD9690>`__: 14-Bit, 500 MSPS / 1 GSPS JESD204B,
+-  :adi:`AD9690 <AD9690>`: 14-Bit, 500 MSPS / 1 GSPS JESD204B,
    Analog-to-Digital Converter
--  `AD9691 <adi>AD9691>`__: 14-Bit, 1.25 GSPS JESD204B, Dual Analog-to-Digital
+-  :adi:`AD9691 <AD9691>`: 14-Bit, 1.25 GSPS JESD204B, Dual Analog-to-Digital
    Converter
--  `AD9694 <adi>AD9694>`__: 14-Bit, 500 MSPS JESD204B, Quad Analog-to-Digital
+-  :adi:`AD9694 <AD9694>`: 14-Bit, 500 MSPS JESD204B, Quad Analog-to-Digital
    Converter
--  `AD9083 <adi>AD9083>`__: 16-Channel, 125 MHz Bandwidth, JESD204B
+-  :adi:`AD9083 <AD9083>`: 16-Channel, 125 MHz Bandwidth, JESD204B
    Analog-to-Digital Converter
 
 JESD204B Digital-to-Analog Converters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `AD9135 <adi>AD9135>`__: Dual, 11-Bit, high dynamic, 2.8 GSPS, TxDAC+®
+-  :adi:`AD9135 <AD9135>`: Dual, 11-Bit, high dynamic, 2.8 GSPS, TxDAC+®
    Digital-to-Analog Converter
--  `AD9136 <adi>AD9136>`__: Dual, 16-Bit, 2.8 GSPS, TxDAC+® Digital-to-Analog
+-  :adi:`AD9136 <AD9136>`: Dual, 16-Bit, 2.8 GSPS, TxDAC+® Digital-to-Analog
    Converter
--  `AD9144 <adi>AD9144>`__: Quad, 16-Bit, 2.8 GSPS, TxDAC+® Digital-to-Analog
+-  :adi:`AD9144 <AD9144>`: Quad, 16-Bit, 2.8 GSPS, TxDAC+® Digital-to-Analog
    Converter
--  `AD9152 <adi>AD9152>`__: Dual, 16-Bit, 2.25 GSPS, TxDAC+ Digital-to-Analog
+-  :adi:`AD9152 <AD9152>`: Dual, 16-Bit, 2.25 GSPS, TxDAC+ Digital-to-Analog
    Converter
--  `AD9154 <adi>AD9154>`__: Quad, 16-Bit, 2.4 GSPS, TxDAC+® Digital-to-Analog
+-  :adi:`AD9154 <AD9154>`: Quad, 16-Bit, 2.4 GSPS, TxDAC+® Digital-to-Analog
    Converter
--  `AD9161 <adi>AD9161>`__: 11-Bit, 12 GSPS, RF Digital-to-Analog Converter
--  `AD9162 <adi>AD9162>`__: 16-Bit, 12 GSPS, RF Digital-to-Analog Converter
--  `AD9163 <adi>AD9163>`__: 16-Bit, 12 GSPS, RF DAC and Digital Upconverter
--  `AD9164 <adi>AD9164>`__: 16-Bit, 12 GSPS, RF DAC and Direct Digital
+-  :adi:`AD9161 <AD9161>`: 11-Bit, 12 GSPS, RF Digital-to-Analog Converter
+-  :adi:`AD9162 <AD9162>`: 16-Bit, 12 GSPS, RF Digital-to-Analog Converter
+-  :adi:`AD9163 <AD9163>`: 16-Bit, 12 GSPS, RF DAC and Digital Upconverter
+-  :adi:`AD9164 <AD9164>`: 16-Bit, 12 GSPS, RF DAC and Direct Digital
    Synthesizer
--  `AD9172 <adi>AD9172>`__: Dual, 16-Bit, 12.6 GSPS RF DAC with Channelizers
--  `AD9173 <adi>AD9173>`__: Dual, 16-Bit, 12.6 GSPS RF DAC with Channelizers
--  `AD9174 <adi>AD9174>`__: Dual, 16-Bit, 12.6 GSPS RF DAC and Direct Digital
+-  :adi:`AD9172 <AD9172>`: Dual, 16-Bit, 12.6 GSPS RF DAC with Channelizers
+-  :adi:`AD9173 <AD9173>`: Dual, 16-Bit, 12.6 GSPS RF DAC with Channelizers
+-  :adi:`AD9174 <AD9174>`: Dual, 16-Bit, 12.6 GSPS RF DAC and Direct Digital
    Synthesizer
--  `AD9175 <adi>AD9175>`__: Dual, 11-Bit/16-Bit, 12.6 GSPS RF DAC with Wideband
+-  :adi:`AD9175 <AD9175>`: Dual, 11-Bit/16-Bit, 12.6 GSPS RF DAC with Wideband
    Channelizers
--  `AD9176 <adi>AD9176>`__: Dual, 16-Bit, 12.6 GSPS RF DAC with Wideband
+-  :adi:`AD9176 <AD9176>`: Dual, 16-Bit, 12.6 GSPS RF DAC with Wideband
    Channelizers
 
 JESD204B RF Transceivers
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `AD9371 <adi>AD9371>`__: SDR Integrated, Dual RF Transceiver with Observation
+-  :adi:`AD9371 <AD9371>`: SDR Integrated, Dual RF Transceiver with Observation
    Path
--  `AD9375 <adi>AD9375>`__: SDR Integrated, Dual RF Transceiver with Observation
+-  :adi:`AD9375 <AD9375>`: SDR Integrated, Dual RF Transceiver with Observation
    Path and DPD
--  `ADRV9009 <adi>ADRV9009>`__: SDR Integrated, Dual RF Transceiver with
+-  :adi:`ADRV9009 <ADRV9009>`: SDR Integrated, Dual RF Transceiver with
    Observation Path
--  `ADRV9008-1 <adi>ADRV9008-1>`__: SDR Integrated, Dual RF Receiver
--  `ADRV9008-2 <adi>ADRV9008-2>`__: SDR Integrated, Dual RF Transmitter with
+-  :adi:`ADRV9008-1 <ADRV9008-1>`: SDR Integrated, Dual RF Receiver
+-  :adi:`ADRV9008-2 <ADRV9008-2>`: SDR Integrated, Dual RF Transmitter with
    Observation Path
 
 JESD204B/C Mixed-Signal Front Ends
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `AD9081 <adi>AD9081>`__: MxFE™ Quad, 16-Bit, 12GSPS RFDAC and Quad, 12-Bit,
+-  :adi:`AD9081 <AD9081>`: MxFE™ Quad, 16-Bit, 12GSPS RFDAC and Quad, 12-Bit,
    4GSPS RFADC
--  `AD9082 <adi>AD9082>`__: MxFE™ QUAD, 16-Bit, 12GSPS RFDAC and DUAL, 12-Bit,
+-  :adi:`AD9082 <AD9082>`: MxFE™ QUAD, 16-Bit, 12GSPS RFDAC and DUAL, 12-Bit,
    6GSPS RFADC
 
 JESD204B Clocking Solutions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `AD9528 <adi>AD9528>`__: JESD204B Clock Generator with 14 LVDS/HSTL Outputs
--  `HMC7043 <adi>HMC7043>`__: High Performance, 3.2 GHz, 14-Output Fanout Buffer
--  `HMC7044 <adi>HMC7044>`__: High Performance, 3.2 GHz, 14-Output Jitter
+-  :adi:`AD9528 <AD9528>`: JESD204B Clock Generator with 14 LVDS/HSTL Outputs
+-  :adi:`HMC7043 <HMC7043>`: High Performance, 3.2 GHz, 14-Output Fanout Buffer
+-  :adi:`HMC7044 <HMC7044>`: High Performance, 3.2 GHz, 14-Output Jitter
    Attenuator with JESD204B
--  `LTC6952 <adi>LTC6952>`__: Ultralow Jitter, 4.5GHz PLL, JESD204B/JESD204C
+-  :adi:`LTC6952 <LTC6952>`: Ultralow Jitter, 4.5GHz PLL, JESD204B/JESD204C
 
 .. |image1| image:: /resources/fpga/peripherals/jesd204_layers2.png
    :width: 100px
