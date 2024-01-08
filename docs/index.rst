@@ -16,6 +16,8 @@ HDL Reference Designs
    library/axi_dmac/index
    library/spi_engine/index
    library/jesd204/index
+   library/axi_adxcvr/index
+   library/xilinx/index
    
 .. toctree::
    :caption: Projects

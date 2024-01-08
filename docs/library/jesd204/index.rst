@@ -1,13 +1,8 @@
-.. _jesd204_interface_framework:
+.. _jesd204:
 
 JESD204 Interface Framework
 ===========================
 
-.. toctree::
-   :hidden:
-
-   AXI ADXCV<axi_adxcvr>
-   
 
 The JESD204, JESD204A, JESD204B and the JESD204C data converter serial interface
 standard was created through the JEDEC committee to standardize and reduce the
@@ -39,8 +34,7 @@ How to Obtain a License
 
 When customers and partners download software from github, or e-mail downloaded
 software to someone, they are obligated to comply to the terms and conditions of
-the `Software License
-Agreement <https://github.com/analogdevicesinc/hdl/blob/master/library/jesd204/README.md>`__.
+the :git-hdl:`Software License Agreement <library/jesd204/README.md>`.
 The core is released under two difference licenses. You may choose either:
 
 -  Commercial licenses may be purchased from Analog Devices, Inc. or any
@@ -90,7 +84,7 @@ Physical layer peripherals are responsible for interfacing and configuring the
 high-speed serial transceivers. Currently we have support for GTXE2, GTHE3,
 GTHE4, GTYE4 for Xilinx and Arria 10 transceivers for Intel.
 
-*  :ref:`jesd204_interface_framework axi`: JESD204B Gigabit 
+*  :ref:`axi_adxcvr`: JESD204B Gigabit 
    Transceiver Register Configuration Peripheral
 *  :dokuwiki:`UTIL_ADXCVR <resources/fpga/docs/util_xcvr>`: JESD204B Gigabit 
    Transceiver Interface Peripheral for Xilinx FPGAs
@@ -213,106 +207,77 @@ Example Projects
 -  :dokuwiki:`AD-FMCADC2-EBZ Reference
    Design <resources/fpga/xilinx/fmc/ad-fmcadc2-ebz>`
 
-   -  `Xilinx
-      VC707 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcadc2/vc707>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcadc2/zc706>`__
+   -  :git-hdl:`Xilinx VC707 <projects/fmcadc2/vc707>`
+   -  :git-hdl:`Xilinx ZC706 <projects/fmcadc2/zc706>`
 
 -  :dokuwiki:`AD-FMCADC3-EBZ Reference
    Design <resources/fpga/xilinx/fmc/ad-fmcadc3-ebz>`
 
-   -  `Xilinx
-      VC707 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcadc2/vc707>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcadc2/zc706>`__
+   -  :git-hdl:`Xilinx VC707 <projects/fmcadc2/vc707>`
+   -  :git-hdl:`Xilinx ZC706 <projects/fmcadc2/zc706>`
 
 -  :dokuwiki:`AD-FMCADC4-EBZ Reference Design
    (retired) <resources/fpga/xilinx/fmc/ad-fmcadc4-ebz>`
 
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/hdl_2018_r2/projects/fmcadc4/zc706>`__
+   -  :git-hdl:`Xilinx ZC706 <hdl_2018_r2:projects/fmcadc4/zc706>`
 
 -  :dokuwiki:`AD-FMCJESDADC1-EBZ Reference
    Design <resources/fpga/xilinx/fmc/ad-fmcjesdadc1-ebz>`
 
-   -  `Xilinx
-      KC705 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcjesdadc1/kc705>`__
-   -  `Xilinx
-      VC707 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcjesdadc1/vc707>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcjesdadc1/zc706>`__
+   -  :git-hdl:`Xilinx KC705 <projects/fmcjesdadc1/kc705>`
+   -  :git-hdl:`Xilinx VC707 <projects/fmcjesdadc1/vc707>`
+   -  :git-hdl:`Xilinx ZC706 <projects/fmcjesdadc1/zc706>`
 
 -  :dokuwiki:`AD-FMCOMMS11-EBZ Reference
    Design <resources/eval/user-guides/ad-fmcomms11-ebz>`
 
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcomms11/zc706>`__
+   -  :git-hdl:`Xilinx ZC706 <projects/fmcomms11/zc706>`
 
 -  :dokuwiki:`AD-FMCDAQ2-EBZ Reference
    Design <resources/eval/user-guides/ad-fmcdaq2-ebz>`
 
-   -  `Intel
-      A10SOC <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq2/a10soc>`__
-   -  `Xilinx
-      KC705 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq2/kc705>`__
-   -  `Xilinx
-      KCU105 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq2/kcu105>`__
-   -  `Xilinx
-      VC707 <https://github.com/analogdevicesinc/hdl/tree/hdl_2018_r2/projects/daq2/vc707>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq2/zc706>`__
-   -  `Xilinx
-      ZCU102 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq2/zcu102>`__
+   -  :git-hdl:`Intel A10SOC <projects/daq2/a10soc>`
+   -  :git-hdl:`Xilinx KC705 <projects/daq2/kc705>`
+   -  :git-hdl:`Xilinx KCU105 <projects/daq2/kcu105>`
+   -  :git-hdl:`Xilinx VC707 <hdl_2018_r2:projects/daq2/vc707>`
+   -  :git-hdl:`Xilinx ZC706 <projects/daq2/zc706>`
+   -  :git-hdl:`Xilinx ZCU102 <projects/daq2/zcu102>`
 
 -  :dokuwiki:`AD-FMCDAQ3-EBZ Reference
    Design <resources/eval/user-guides/ad-fmcdaq3-ebz>`
 
-   -  `Xilinx
-      KCU105 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq3/kcu105>`__
-   -  `Xilinx
-      VCU118 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq3/vcu118>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq3/zc706>`__
-   -  `Xilinx
-      ZCU102 <https://github.com/analogdevicesinc/hdl/tree/master/projects/daq3/zcu102>`__
+   -  :git-hdl:`Xilinx KCU105 <projects/daq3/kcu105>`
+   -  :git-hdl:`Xilinx VCU118 <projects/daq3/vcu118>`
+   -  :git-hdl:`Xilinx ZC706 <projects/daq3/zc706>`
+   -  :git-hdl:`Xilinx ZCU102 <projects/daq3/zcu102>`
 
 -  :dokuwiki:`ADRV9371 Reference Design <resources/eval/user-guides/mykonos>`
 
-   -  `Intel
-      A10SOC <https://github.com/analogdevicesinc/hdl/tree/master/projects/adrv9371x/a10soc>`__
-   -  `Xilinx
-      KCU105 <https://github.com/analogdevicesinc/hdl/tree/master/projects/adrv9371x/kcu105>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/adrv9371x/zc706>`__
-   -  `Xilinx
-      ZCU102 <https://github.com/analogdevicesinc/hdl/tree/master/projects/adrv9371x/zcu102>`__
+   -  :git-hdl:`Intel A10SOC <projects/adrv9371x/a10soc>`
+   -  :git-hdl:`Xilinx KCU105 <projects/adrv9371x/kcu105>`
+   -  :git-hdl:`Xilinx ZC706 <projects/adrv9371x/zc706>`
+   -  :git-hdl:`Xilinx ZCU102 <projects/adrv9371x/zcu102>`
+   
+   :dokuwiki:`ADRV9009 Reference Design <resources/eval/user-guides/adrv9009>`
 
-- :dokuwiki:`ADRV9009 Reference Design <resources/eval/user-guides/adrv9009>`
-
-   -  `Xilinx
-      ZCU102 <https://github.com/analogdevicesinc/hdl/tree/master/projects/adrv9009/zcu102>`__
+   -  :git-hdl:`Xilinx ZCU102 <projects/adrv9009/zcu102>`
 
 -  :dokuwiki:`ADRV9009-ZU11EG-SOM Reference
    Design <resources/eval/user-guides/adrv9009-zu11eg>`
 
-   -  `ADRV9009-ZU11EG-SOM <https://github.com/analogdevicesinc/hdl/tree/master/projects/adrv9009zu11eg>`__
+   -  :git-hdl:`ADRV9009-ZU11EG-SOM <projects/adrv9009zu11eg>`
 
 -  :dokuwiki:`AD917X Reference Design <resources/eval/user-guides/ad-dac-fmc-ebz>`
 
-   -  `Intel
-      A10SOC <https://github.com/analogdevicesinc/hdl/tree/master/projects/dac_fmc_ebz/a10soc>`__
-   -  `Xilinx
-      ZC706 <https://github.com/analogdevicesinc/hdl/tree/master/projects/dac_fmc_ebz/zc706>`__
-   -  `Xilinx
-      ZCU102 <https://github.com/analogdevicesinc/hdl/tree/master/projects/dac_fmc_ebz/zcu102>`__
+   -  :git-hdl:`Intel A10SOC <projects/dac_fmc_ebz/a10soc>`
+   -  :git-hdl:`Xilinx ZC706 <projects/dac_fmc_ebz/zc706>`
+   -  :git-hdl:`Xilinx ZCU102 <projects/dac_fmc_ebz/zcu102>`
 
 -  :dokuwiki:`AD9081 Reference
    Design <resources/eval/user-guides/ad9081_fmca_ebz/ad9081_fmca_ebz_hdl>`
 
-   -  `Xilinx
-      ZCU102 <https://github.com/analogdevicesinc/hdl/tree/master/projects/ad9081_fmca_ebz/zcu102>`__
-   -  `Xilinx
-      VCU118 <https://github.com/analogdevicesinc/hdl/tree/master/projects/ad9081_fmca_ebz/vcu118>`__
+   -  :git-hdl:`Xilinx ZCU102 <projects/ad9081_fmca_ebz/zcu102>`
+   -  :git-hdl:`Xilinx VCU118 <projects/ad9081_fmca_ebz/vcu118>`
 
 Additional Information
 ----------------------
@@ -438,7 +403,3 @@ JESD204B Clocking Solutions
 -  :adi:`HMC7044 <HMC7044>`: High Performance, 3.2 GHz, 14-Output Jitter
    Attenuator with JESD204B
 -  :adi:`LTC6952 <LTC6952>`: Ultralow Jitter, 4.5GHz PLL, JESD204B/JESD204C
-
-.. |image1| image:: /resources/fpga/peripherals/jesd204_layers2.png
-   :width: 100px
-.. |image2| image:: /resources/fpga/peripherals/jesd204_chain.png
