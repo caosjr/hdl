@@ -139,41 +139,38 @@ Signal and Interface Pins
 .. hdl-interfaces::
     :path: library/jesd204/axi_jesd204_tx
 
-.. list-table::
-   :header-rows: 1
-
-   * - s_axi_aclk
-     - All ``S_AXI`` signals and ``irq`` are synchronous to this clock.
-   * - s_axi_aresetn
-     - Resets the internal state of the peripheral.
-   * - S_AXI
-     - Memory mapped AXI-lite bus that provides access to modules register map.
-   * - irq
-     - Interrupt output of the module. Is asserted when at least one of the
-       modules interrupt is pending and enabled.
-   * - clk
-     - `Link clock <jesd204_glossary#clocks>`__ for the JESD204 interface. Must
-       be line clock / 40 for correct operation in 8B/10B mode, line clock /
-       66 in 64B/66B mode.
-   * - ``reset``
-     - Reset active high synchronous with the `Link clock
-       <jesd204_glossary#clocks>`__.
-   * - device_clk
-     - `Device clock <jesd204_glossary#clocks>`__ for the JESD204 interface.
-        Its frequency must be link clock \* ``DATA_PATH_WIDTH`` /
-        ``TPL_DATA_PATH_WIDTH``
-   * - device_reset
-     - Reset active high synchronous with the `Device clock
-       <jesd204_glossary#clocks>`__.
-   * - TX_DATA
-     - Transmit data.
-   * - sync[m-1:0]
-     - The m-th JESD204B SYNC~ (or SYNC_N) signal, available in 8B/10B mode.
-       (``0 <= n < NUM_LINKS``)
-   * - sysref
-     - JESD204 SYSREF signal.
-   * - TX_PHYn
-     - n-th lane of the JESD204 interface (``0 <= n < NUM_LANES``).
+    * - s_axi_aclk
+      - All ``S_AXI`` signals and ``irq`` are synchronous to this clock.
+    * - s_axi_aresetn
+      - Resets the internal state of the peripheral.
+    * - S_AXI
+      - Memory mapped AXI-lite bus that provides access to modules register map.
+    * - irq
+      - Interrupt output of the module. Is asserted when at least one of the
+        modules interrupt is pending and enabled.
+    * - clk
+      - `Link clock <jesd204_glossary#clocks>`__ for the JESD204 interface. Must
+        be line clock / 40 for correct operation in 8B/10B mode, line clock /
+        66 in 64B/66B mode.
+    * - ``reset``
+      - Reset active high synchronous with the `Link clock
+        <jesd204_glossary#clocks>`__.
+    * - device_clk
+      - `Device clock <jesd204_glossary#clocks>`__ for the JESD204 interface.
+         Its frequency must be link clock \* ``DATA_PATH_WIDTH`` /
+         ``TPL_DATA_PATH_WIDTH``
+    * - device_reset
+      - Reset active high synchronous with the `Device clock
+        <jesd204_glossary#clocks>`__.
+    * - TX_DATA
+      - Transmit data.
+    * - sync[m-1:0]
+      - The m-th JESD204B SYNC~ (or SYNC_N) signal, available in 8B/10B mode.
+        (``0 <= n < NUM_LINKS``)
+    * - sysref
+      - JESD204 SYSREF signal.
+    * - TX_PHYn
+      - n-th lane of the JESD204 interface (``0 <= n < NUM_LANES``).
 
 Register Map
 ------------
@@ -454,13 +451,14 @@ Character replacement is used only in 8B/10B links and completely disregarded in
 The ``LINK_CONF2`` (``0x240``) register contains configuration data that affects
 the transitions of the `link state machine <#link_state_machine>`__. If the
 ``CONTINUOUS_CGS`` (``[0]``) bit is set the state machine will remain in the CGS
-phase indefinitely and send repeated `/K/
-characters <jesd204_glossary#control_characters>`__. If the ``CONTINUOUS_ILAS``
-(``[1]``) bit is set the state machine will remain in the ILAS phase
-indefinitely and send repeated ILAS sequences. If the ``SKIP_ILAS`` (``[2]``)
-bit is set the state machine will directly transition to the DATA phase from the
-CGS phase without going through the ILAS phase. The ``LINK_CONFIG2`` register is
-used only in 8B/10B links and completely disregarded in 64B/66B mode.
+phase indefinitely and send repeated :dokuwiki:`/K/ control character
+<resources/fpga/peripherals/jesd204/jesd204_glossary#control_characters>`.
+If the ``CONTINUOUS_ILAS`` (``[1]``) bit is set the state machine will remain
+in the ILAS phase indefinitely and send repeated ILAS sequences. If the
+``SKIP_ILAS`` (``[2]``) bit is set the state machine will directly transition
+to the DATA phase from the CGS phase without going through the ILAS phase.
+The ``LINK_CONFIG2`` register is used only in 8B/10B links and completely
+disregarded in 64B/66B mode.
 
 The ``LINK_CONF3`` (``0x244``) register configures the duration of the ILAS
 sequence in number of multi-frames. Its value is equal to the number of
@@ -527,8 +525,8 @@ link status registers might contain bogus values. Their content should be
 ignored until the link is fully enabled.
 
 The ``STATUS_STATE`` (``[1:0]``) field of the ``LINK_STATUS`` (``0x280``)
-register indicates the state of the `8B/10B link state
-machine <#8b_10b_link_state_machine>`__ or `64B/66B link state
+register indicates the state of the :ref:`8B/10B link state
+machine <axi_jesd204_tx_8b_10b_link_state_machine>` or `64B/66B link state
 machine <#64b_66b_link_state_machine>`__ depending on the selected encoder.
 Possible values are:
 
@@ -600,6 +598,8 @@ The core does not generates interrupts.
 -----------
 
 |image2|
+
+.. _axi_jesd204_tx_8b_10b_link_state_machine:
 
 8B/10B Link State Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~
