@@ -241,6 +241,8 @@ transceiver peripheral.
 The physical layer is responsible for clock recovery, character alignment,
 de-serialization as well an 8b10b decoding.
 
+.. _axi_jesd204_rx_user_data:
+ 
 User Data Interface (RX_DATA)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

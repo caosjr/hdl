@@ -957,4 +957,4 @@ More Information
 ----------------
 
 -  :ref:`JESD204B High-Speed Serial Interface Support <jesd204>`
--  :dokuwiki:`HDL User Guide <resources/fpga/docs/hdl>`
+-  :ref:`HDL User Guide <user_guide>`
