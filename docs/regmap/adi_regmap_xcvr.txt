@@ -110,7 +110,7 @@ ENDFIELD
 REG
 0x0007
 FPGA_INFO
-FPGA device information `Xilinx encoded values <https://github.com/analogdevicesinc/hdl/blob/master/library/scripts/adi_xilinx_device_info_enc.tcl>`__
+FPGA device information :git-hdl:`Xilinx encoded values <library/scripts/adi_xilinx_device_info_enc.tcl>`
 ENDREG
 
 FIELD

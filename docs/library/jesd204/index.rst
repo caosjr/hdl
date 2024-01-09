@@ -3,6 +3,10 @@
 JESD204 Interface Framework
 ===========================
 
+.. toctree::
+   :hidden:
+   
+   JESD204B/C Link Transmit Peripheral <axi_jesd204_tx/index>
 
 The JESD204, JESD204A, JESD204B and the JESD204C data converter serial interface
 standard was created through the JEDEC committee to standardize and reduce the
@@ -77,6 +81,8 @@ specific signal processing.
 
 |image2|
 
+.. _jesd204_physical_layer:
+
 Physical Layer
 ~~~~~~~~~~~~~~
 
@@ -102,6 +108,8 @@ alignment monitoring.
 *  :dokuwiki:`JESD204B/C Receive Peripheral 
    <resources/fpga/peripherals/jesd204/axi_jesd204_rx>`: JESD204B/C Link
    Layer Receive Peripheral
+
+.. _jesd204_transport_layer:
 
 Transport Layer
 ~~~~~~~~~~~~~~~

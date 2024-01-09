@@ -119,7 +119,7 @@ ENDFIELD
 REG
 0x0007
 REG_FPGA_INFO
-FPGA device information `Intel Encoded Values <https://github.com/analogdevicesinc/hdl/blob/main/library/scripts/adi_intel_device_info_enc.tcl>`__
+FPGA device information :git-hdl:`Intel Encoded Values <library/scripts/adi_intel_device_info_enc.tcl>`
 ENDREG
 
 FIELD
