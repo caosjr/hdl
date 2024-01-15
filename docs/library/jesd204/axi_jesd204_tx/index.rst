@@ -233,6 +233,8 @@ responsible for performing the final 8b10b mapping as well as serializing the
 data and transmitting it on the physical CML differential high-speed serial
 lane.
 
+.. _axi_jesd204_tx_user_data:
+
 User Data Interface (TX_DATA)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
