@@ -41,7 +41,7 @@ How to Obtain a License
 
 When customers and partners download software from github, or e-mail downloaded
 software to someone, they are obligated to comply to the terms and conditions of
-the :git-hdl:`Software License Agreement <library/jesd204/README.md>`.
+the :git-hdl:`Software License Agreement <LICENSE_ADIJESD204>`.
 The core is released under two difference licenses. You may choose either:
 
 -  Commercial licenses may be purchased from Analog Devices, Inc. or any
@@ -62,7 +62,9 @@ have a question about the license: you can email
 FPGA HDL Support
 ----------------
 
-|image1|
+.. image:: jesd204_layers2.svg
+   :scale: 300%
+   :align: right
 
 The JESD204B/C standard defines multiple layers, each layer being responsible
 for a particular function. The Analog Devices JESD204B/C HDL solution follows
@@ -82,7 +84,8 @@ link.
 The application layer is user defined and can be used to implement application
 specific signal processing.
 
-|image2|
+.. image:: jesd204_tx_chain.svg
+   :scale: 300%
 
 .. _jesd204_physical_layer:
 
@@ -95,7 +98,7 @@ GTHE4, GTYE4 for Xilinx and Arria 10 transceivers for Intel.
 
 *  :ref:`axi_adxcvr`: JESD204B Gigabit 
    Transceiver Register Configuration Peripheral
-*  :dokuwiki:`UTIL_ADXCVR <resources/fpga/docs/util_xcvr>`: JESD204B Gigabit 
+*  :ref:`UTIL_ADXCVR <util_adxcvr>`: JESD204B Gigabit 
    Transceiver Interface Peripheral for Xilinx FPGAs
 
 Link Layer
@@ -105,11 +108,11 @@ Link layer peripherals are responsible for JESD204B/C protocol handling,
 including scrambling/descrambling, lane alignment, character replacement and
 alignment monitoring.
 
-*  :dokuwiki:`JESD204B/C Transmit Peripheral 
-   <resources/fpga/peripherals/jesd204/axi_jesd204_tx>`: JESD204B/C Link
+*  :ref:`JESD204B/C Transmit Peripheral 
+   <axi_jesd204_tx>`: JESD204B/C Link
    Layer Transmit Peripheral
-*  :dokuwiki:`JESD204B/C Receive Peripheral 
-   <resources/fpga/peripherals/jesd204/axi_jesd204_rx>`: JESD204B/C Link
+*  :ref:`JESD204B/C Receive Peripheral 
+   <axi_jesd204_rx>`: JESD204B/C Link
    Layer Receive Peripheral
 
 .. _jesd204_transport_layer:
@@ -120,11 +123,9 @@ Transport Layer
 Transport layer peripherals are responsible for converter specific data framing
 and de-framing.
 
-*  :dokuwiki:`ADC JESD204B/C Transport Peripheral 
-   <resources/fpga/peripherals/jesd204/jesd204_tpl_adc>`:
+*  :ref:`ADC JESD204B/C Transport Peripheral <ad_ip_jesd204_tpl_adc>`:
    JESD204B/C Transport Layer Receive Peripheral
-*  :dokuwiki:`DAC JESD204B/C Transport Peripheral 
-   <resources/fpga/peripherals/jesd204/jesd204_tpl_dac>`:
+*  :ref:`DAC JESD204B/C Transport Peripheral <ad_ip_jesd204_tpl_dac>`:
    JESD204B/C Transport Layer Transmit Peripheral
 
 Interfaces
@@ -204,7 +205,7 @@ Tutorial
 #. :dokuwiki:`Generic JESD204B block
    designs <resources/fpga/docs/hdl/generic_jesd_bds>`. This will help you
    understand the generic blocks for the next steps.
-#. Checkout the :dokuwiki:`HDL Source <resources/fpga/docs/build>`, and then build
+#. Checkout the :ref:`HDL Source <build_hdl>`, and then build
    either one of:
 
    #. :dokuwiki:`HDL Xilinx <resources/fpga/peripherals/jesd204/tutorial/hdl_xilinx>`
@@ -269,7 +270,7 @@ Example Projects
    -  :git-hdl:`Xilinx ZC706 <projects/adrv9371x/zc706>`
    -  :git-hdl:`Xilinx ZCU102 <projects/adrv9371x/zcu102>`
    
-   :dokuwiki:`ADRV9009 Reference Design <resources/eval/user-guides/adrv9009>`
+-  :dokuwiki:`ADRV9009 Reference Design <resources/eval/user-guides/adrv9009>`
 
    -  :git-hdl:`Xilinx ZCU102 <projects/adrv9009/zcu102>`
 

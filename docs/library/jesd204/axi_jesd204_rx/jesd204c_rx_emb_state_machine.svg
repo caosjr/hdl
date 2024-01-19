@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="310.86264"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 337.728 310.86264"
+   width="337.728"
+   zoomAndPan="magnify"
+   id="svg16"
+   sodipodi:docname="jesd204c_rx_emb_state_machine.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="73.539103"
+     inkscape:cy="59.750521"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="-9"
+     inkscape:window-y="140"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16"
+     showguides="true">
+    <sodipodi:guide
+       position="202.93404,451.90899"
+       orientation="-0.70710678,-0.70710678"
+       id="guide20"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="164.07602,395.64857"
+       orientation="0.70710678,-0.70710678"
+       id="guide21"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker27"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27" />
+    </marker>
+  </defs>
+  <circle
+     style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+     id="path16"
+     cx="122.19449"
+     cy="62.96875"
+     r="39.749554" />
+  <g
+     id="g17"
+     transform="translate(15.553657,5.9736031)">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.563504;stroke-linejoin:round;stroke-dasharray:none"
+       id="path16-2"
+       cx="106.64082"
+       cy="56.99514"
+       r="44.718246" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="121.52554"
+     y="57.739258"
+     id="text16"><tspan
+       sodipodi:role="line"
+       id="tspan16"
+       x="121.52554"
+       y="57.739258"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1">EMB</tspan><tspan
+       sodipodi:role="line"
+       x="121.52554"
+       y="82.739258"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1"
+       id="tspan1">INIT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="76.921043"
+     y="6.0664062"
+     id="text16-4-1-2"><tspan
+       sodipodi:role="line"
+       x="76.921043"
+       y="6.0664062"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan27-3">Reset or</tspan><tspan
+       sodipodi:role="line"
+       x="76.921043"
+       y="16.066406"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan3">Sync header alignment lost</tspan></text>
+  <path
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.9;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#marker27)"
+     d="m 62.114445,12.097393 23.161778,18.54164"
+     id="path26" />
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="185.13921"
+     y="75.370651"
+     id="text16-4-1-5-2"><tspan
+       sodipodi:role="line"
+       x="185.13921"
+       y="75.370651"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan4">An EoEMB received</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="208.55113"
+     y="210.88652"
+     id="text16-4-1-5-3"><tspan
+       sodipodi:role="line"
+       x="208.55113"
+       y="210.88652"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan7">Four consecutive correct</tspan><tspan
+       sodipodi:role="line"
+       x="208.55113"
+       y="220.88652"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan11">EoMB received</tspan></text>
+  <path
+     style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#marker27)"
+     d="m 257.95106,97.866953 c 0,0 -27.68489,-14.2897 -42.70466,-17.75981 -13.22449,-3.05533 -50.09889,-3.14522 -50.09889,-3.14522"
+     id="path7"
+     sodipodi:nodetypes="csc" />
+  <path
+     style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#marker27)"
+     d="m 95.891746,103.86143 c 0,0 -1.07547,2.23273 -1.71875,4.10731 -3.11291,9.07137 -10.122525,31.85237 -10.662222,47.69814 -0.949207,27.86919 16.978986,86.01235 16.978986,86.01235"
+     id="path8"
+     sodipodi:nodetypes="cssc" />
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="82.882812"
+     y="139.93929"
+     id="text16-4-1-5"><tspan
+       sodipodi:role="line"
+       x="82.882812"
+       y="139.93929"
+       style="font-size:8px;text-align:end;letter-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1"
+       id="tspan6">Eight incorrect EoMB</tspan><tspan
+       sodipodi:role="line"
+       x="82.882812"
+       y="149.93929"
+       style="font-size:8px;text-align:end;letter-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1"
+       id="tspan5">or EoEMB received</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="148.57866"
+     y="133.18271"
+     id="text16-4-1-5-2-5"><tspan
+       sodipodi:role="line"
+       x="148.57866"
+       y="133.18271"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan4-4">Unexpected EoMB</tspan><tspan
+       sodipodi:role="line"
+       x="148.57866"
+       y="143.18271"
+       style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+       id="tspan9">or EoEMB received</tspan></text>
+  <path
+     style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#marker27)"
+     d="m 273.11018,147.73051 -109.7192,98.19486"
+     id="path10"
+     sodipodi:nodetypes="cc" />
+  <circle
+     style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+     id="path16-3"
+     cx="127.4778"
+     cy="270.86267"
+     r="39.749554" />
+  <text
+     xml:space="preserve"
+     style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="126.60866"
+     y="265.48181"
+     id="text16-8"><tspan
+       sodipodi:role="line"
+       x="126.60866"
+       y="265.48181"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1"
+       id="tspan2">EMB</tspan><tspan
+       sodipodi:role="line"
+       x="126.60866"
+       y="290.48181"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1"
+       id="tspan12">LOCK</tspan></text>
+  <circle
+     style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+     id="path16-9"
+     cx="297.728"
+     cy="116.5217"
+     r="39.749554" />
+  <text
+     xml:space="preserve"
+     style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="296.75143"
+     y="111.14084"
+     id="text16-0"><tspan
+       sodipodi:role="line"
+       id="tspan16-8"
+       x="296.75143"
+       y="111.14084"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1">EMB</tspan><tspan
+       sodipodi:role="line"
+       x="296.75143"
+       y="136.14084"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1"
+       id="tspan13">HUNT</tspan></text>
+  <path
+     style="fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#marker27)"
+     d="m 260.03793,129.15043 c 0,0 -33.07748,-5.7913 -48.7962,-11.45355 -17.69325,-6.37352 -50.52999,-25.095337 -50.52999,-25.095337"
+     id="path9"
+     sodipodi:nodetypes="csc" />
+</svg>

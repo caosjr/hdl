@@ -16,8 +16,8 @@ between the Xilinx's and Intel's transceivers architecture.
 Features
 --------
 
--  Supports :xilinx:`Intel <library/intel/axi_adxcvr>`
-   and :xilinx:`Xilinx <library/xilinx/axi_adxcvr>` devices.
+-  Supports :git-hdl:`Intel <library/intel/axi_adxcvr>`
+   and :git-hdl:`Xilinx <library/xilinx/axi_adxcvr>` devices.
 -  Software can access the core's registers through an AXI4 Lite Memory Mapped
    interface.
 -  Link reset and monitor for Intel and Xilinx.
@@ -68,9 +68,9 @@ Interfaces
 .. hdl-interfaces::
   :path: library/xilinx/axi_adxcvr
   
-  * - axi_aclk
+  * - s_axi_aclk
     - System clock. (in general 100 MHz)
-  * - axi_aresetn
+  * - s_axi_aresetn
     - System reset.
   * - s_axi
     - Slave AXI4 Lite Memory Mapped interface

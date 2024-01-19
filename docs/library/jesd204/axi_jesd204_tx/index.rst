@@ -11,7 +11,7 @@ The Analog Devices JESD204B/C Link Transmit Peripheral implements the link layer
 handling of a JESD204 transmit logic device. Implements the 8B/10B based link
 layer defined in JESD204C standard that is similar to the link layer defined in
 JESD204B. This includes handling of the SYSREF and SYNC~ and controlling the
-link state machine accordingly as well as performing per lane scrambling and
+:ref:`link state machine <axi_jesd204_tx_8b_10b_link_state_machine>` accordingly as well as performing per lane scrambling and
 character replacement. It has been designed for interoperability with
 :ref:`Analog Devices JESD204B DAC converter products <axi_jesd204_tx_supported_devices>`.
 Implements the 64B/66B based link layer defined in the JESD204C standard.
@@ -101,7 +101,9 @@ Files
 Block Diagram
 -------------
 
-|axi_jesd204_tx block diagram|
+.. image:: axi_jesd204_tx_204c.svg
+   :scale: 100%
+   :align: center
 
 Synthesis Configuration Parameters
 ----------------------------------
@@ -152,7 +154,7 @@ Signal and Interface Pins
       - `Link clock <jesd204_glossary#clocks>`__ for the JESD204 interface. Must
         be line clock / 40 for correct operation in 8B/10B mode, line clock /
         66 in 64B/66B mode.
-    * - ``reset``
+    * - reset
       - Reset active high synchronous with the `Link clock
         <jesd204_glossary#clocks>`__.
     * - device_clk
@@ -245,7 +247,25 @@ interface is as if the TVALID signal was always asserted. This means as soon as
 tx_ready is asserted a continuous stream of user data must be provided on
 tx_data.
 
-|TX_DATA timing|
+.. wavedrom::
+   :scale: 100%
+   :align: center
+
+   {signal:
+      [
+         ['TX_DATA',
+            { name: "device_clk", wave: 'P.........' },
+            { name: "tx_data",  wave: "x...======",
+            data: ["D0", "D1", "D2", "D3", "D4", "..."] },
+            { name: 'tx_ready', wave: '0...1.....' },
+         ]
+      ],
+      foot:
+      {text:
+         ['tspan',{dx:'-45'}, 'Link Inicialization', ['tspan', {dx:'60'},
+         'User Data Phase'],],
+      }
+   }
 
 After reset and during link initialization the ``tx_ready`` signal is
 de-asserted. As soon as the `User Data Phase <#user_data_phase_data>`__ is
@@ -253,7 +273,9 @@ entered the ``tx_ready`` will be asserted to indicate that the peripheral is now
 accepting and processing the data from the ``tx_data`` signal. The ``tx_ready``
 signal stays asserted until the link is either deactivated or re-initialized.
 
-|image1|
+.. image:: octets_mapping.svg
+   :scale: 6%
+   :align: right
 
 Typically the ``TX_DATA`` interface is connected to a JESD204B transport layer
 peripheral that provides framed and lane mapped data. The internal data path
@@ -599,14 +621,18 @@ The core does not generates interrupts.
 8B/10B Link
 -----------
 
-|image2|
+.. image:: axi_jesd204_tx_204c_8b10b.svg
+   :scale: 100%
+   :align: center
 
 .. _axi_jesd204_tx_8b_10b_link_state_machine:
 
 8B/10B Link State Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image3|
+.. image:: jesd204_tx_state_machine.svg
+   :scale: 150%
+   :align: right
 
 The peripheral can be in one of four main operating phases: WAIT, CGS, ILAS or
 DATA. Upon reset the peripheral starts in the WAIT phase. The CGS and ILAS
@@ -686,7 +712,18 @@ All other octets of the ILAS sequence will contain the numerical value
 corresponding to the position of the octet in the ILAS sequence (E.g. the fifth
 octet of the first multi-frame contains the value 4).
 
-|image4|
+.. wavedrom::
+
+   {
+      signal:
+      [
+         { name: "ILAS",  wave: "x35x|.54378x|x5435x|.5435x|x54", data: ["/R/",
+         "D", "D", "/A/", "/R/", "/Q/", "C", "D", "/A/", "/R/", "D", "D",
+         "/A/", "/R/", "D", "D", "A"] },
+         { name: "LMFC", wave: 'pH..|l..H...|l..H..|l..H..|l..' },
+      ],
+      config: { skin: 'narrow' }
+   }
 
 By default the ILAS is transmitted for a duration of 4 multi-frames. After the
 last ILAS multi-frame the peripheral switches to the DATA phase.
@@ -722,13 +759,10 @@ character replacement will replace under certain predictable conditions (i.e.
 the receiver can recover the replaced character) the last octet in a frame or
 multi-frame. Replaced characters at the end of a frame, that is also the end of
 a multi-frame, are replaced by the :dokuwiki:`/A/ character
-<resources/fpga/peripherals/jesd204/jesd204_glossary#control_characters>`
-
-:dokuwiki:`/A/ control character
 <resources/fpga/peripherals/jesd204/jesd204_glossary#control_characters>`.
 Replaced characters at the end of a frame, that is not the end of a
 multi-frame, are replaced by the 
-:dokuwiki:`/F/ control character
+:dokuwiki:`/F/ character
 <resources/fpga/peripherals/jesd204/jesd204_glossary#control_characters>`.
 Alignment characters can be used by the receiver to ensure proper frame
 and lane alignment.
@@ -755,7 +789,9 @@ signalize that through the de-assertion of ``SYNC~`` signal.
 In the below example we have a multi-point link of four endpoints
 (``NUM_LINKS`` = 4):
 
-|image5|
+.. image:: quadmxfe_linkbringup_204b_dac.svg
+   :scale: 180%
+   :align: center
 
 .. note::
 
@@ -790,7 +826,9 @@ links <resources/fpga/peripherals/jesd204/jesd204_troubleshooting>`
 64B/66B Link
 ------------
 
-|image6|
+.. image:: axi_jesd204_tx_204c_64b66b.svg
+   :scale: 60%
+   :align: center
 
 The 64 bit wide datapath of the link layer is fairly simple, the only mandatory
 part of the 64B66B link layer datapath is the scrambler. This must be active
@@ -821,7 +859,9 @@ every device clock cycle (each beat) so an integer number of samples can be
 delivered/consumed to/from the application layer aligned to SYSREF ensuring
 deterministic latency in modes where N'=12 or F!=1,2,4.
 
-|image dual clock|
+.. image:: dual_clock_operation.svg
+   :scale: 60%
+   :align: center
 
 The gearbox ratio corresponds with the ratio of the link layer interface data
 width towards physical layer and transport layer in octets. The interface width

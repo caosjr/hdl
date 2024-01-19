@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="405.44885"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 357.75516 405.44885"
+   width="357.75516"
+   zoomAndPan="magnify"
+   id="svg16"
+   sodipodi:docname="jesd204c_rx_state_machine.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="-140.00714"
+     inkscape:cy="304.40947"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="-9"
+     inkscape:window-y="140"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g16"
+     showguides="true">
+    <sodipodi:guide
+       position="136.37928,420.1285"
+       orientation="1,0"
+       id="guide19"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="211.43013,357.32279"
+       orientation="-0.70710678,-0.70710678"
+       id="guide20"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="172.57211,301.06237"
+       orientation="0.70710678,-0.70710678"
+       id="guide21"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker27"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path27" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <circle
+     style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+     id="path16"
+     cx="135.97389"
+     cy="54.554947"
+     r="39.749554" />
+  <g
+     id="g17"
+     transform="translate(29.333065,-2.4401928)">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.563504;stroke-linejoin:round;stroke-dasharray:none"
+       id="path16-2"
+       cx="106.64082"
+       cy="56.99514"
+       r="44.718246" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+     x="135.52466"
+     y="61.825455"
+     id="text16"><tspan
+       sodipodi:role="line"
+       id="tspan16"
+       x="135.52466"
+       y="61.825455"
+       style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1">RESET</tspan></text>
+  <g
+     id="g16"
+     transform="translate(29.333065,-2.4401928)">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+       id="path16-23"
+       cx="106.64082"
+       cy="173.59946"
+       r="39.749554" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="106.1916"
+       y="168.23813"
+       id="text16-4"><tspan
+         sodipodi:role="line"
+         id="tspan16-1"
+         x="106.1916"
+         y="168.23813"
+         style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1">WAIT</tspan><tspan
+         sodipodi:role="line"
+         x="106.1916"
+         y="193.23813"
+         style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1"
+         id="tspan1">BS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="62.310749"
+       y="8.3073807"
+       id="text16-4-1-2"><tspan
+         sodipodi:role="line"
+         x="62.310749"
+         y="8.3073807"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan27-3">reset</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.9;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#marker27)"
+       d="M 50.973737,2.7914934 74.135517,21.333134"
+       id="path26" />
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="154.80223"
+       y="160.39703"
+       id="text16-4-1-5-2"><tspan
+         sodipodi:role="line"
+         x="154.80223"
+         y="160.39703"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan29-6">One of the lanes lost</tspan><tspan
+         sodipodi:role="line"
+         x="154.80223"
+         y="170.39703"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan4">sync header alignment</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="232.44943"
+       y="309.4129"
+       id="text16-4-1-5-3"><tspan
+         sodipodi:role="line"
+         x="232.44943"
+         y="309.4129"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan29-5">All lanes reached</tspan><tspan
+         sodipodi:role="line"
+         x="232.44943"
+         y="319.4129"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan6-2">multi-block alignment</tspan><tspan
+         sodipodi:role="line"
+         x="232.44943"
+         y="329.4129"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan7">and buffer was released</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="161.64107"
+       y="258.77814"
+       id="text16-4-1-5-3-7"><tspan
+         sodipodi:role="line"
+         x="161.64107"
+         y="258.77814"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan29-5-0">One of the lanes lost</tspan><tspan
+         sodipodi:role="line"
+         x="161.64107"
+         y="268.77814"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan7-7">multi-block alignment</tspan></text>
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#marker27)"
+       d="m 240.98909,196.48709 c 0,0 -30.197,-15.57205 -46.57967,-19.35356 -14.42446,-3.32951 -44.33155,-2.65908 -44.33155,-2.65908"
+       id="path7"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#marker27)"
+       d="m 75.461028,199.9347 c 0,0 0.643277,-1.87458 0,0 -3.112915,9.07137 -12.247528,36.9128 -12.787225,52.75857 -0.949207,27.86919 14.567532,82.37792 14.567532,82.37792"
+       id="path8"
+       sodipodi:nodetypes="cssc" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#marker27)"
+       d="m 133.74278,207.78135 c 0,0 7.4216,34.02005 6.89804,57.13121 -0.57303,25.29492 -9.71289,71.63652 -9.71289,71.63652"
+       id="path9"
+       sodipodi:nodetypes="csc" />
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="62.045841"
+       y="236.96567"
+       id="text16-4-1-5"><tspan
+         sodipodi:role="line"
+         x="62.045841"
+         y="236.96567"
+         style="font-size:8px;text-align:end;letter-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1"
+         id="tspan29">All lanes reached</tspan><tspan
+         sodipodi:role="line"
+         x="62.045841"
+         y="246.96567"
+         style="font-size:8px;text-align:end;letter-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1"
+         id="tspan6">sync header alignment</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="139.72821"
+       y="220.5708"
+       id="text16-4-1-5-2-5"><tspan
+         sodipodi:role="line"
+         x="139.72821"
+         y="220.5708"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan29-6-3">One of the lanes lost</tspan><tspan
+         sodipodi:role="line"
+         x="139.72821"
+         y="230.5708"
+         style="font-size:8px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="tspan4-4">sync header alignment</tspan></text>
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#marker27)"
+       d="m 252.27321,244.7569 -109.7192,98.19486"
+       id="path10"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#marker27)"
+       d="M 274.72552,256.12607 146.64082,372.94019"
+       id="path11"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     id="g18"
+     transform="translate(29.333065,67.559807)">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+       id="path16-3"
+       cx="106.64082"
+       cy="297.88904"
+       r="39.749554" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="105.77168"
+       y="292.67908"
+       id="text16-8"><tspan
+         sodipodi:role="line"
+         id="tspan16-2"
+         x="105.77168"
+         y="292.67908"
+         style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1">BLOCK</tspan><tspan
+         sodipodi:role="line"
+         x="105.77168"
+         y="317.67908"
+         style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1"
+         id="tspan2">SYNC</tspan></text>
+  </g>
+  <g
+     id="g19"
+     transform="translate(24.2241,-44.892101)">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.500892;stroke-linejoin:round;stroke-dasharray:none"
+       id="path16-9"
+       cx="282"
+       cy="256"
+       r="39.749554" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       x="281.90723"
+       y="263.27051"
+       id="text16-0"><tspan
+         sodipodi:role="line"
+         id="tspan16-8"
+         x="281.90723"
+         y="263.27051"
+         style="font-size:20px;letter-spacing:0px;fill:#000000;fill-opacity:1">DATA</tspan></text>
+  </g>
+  <path
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.9;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#Triangle)"
+     d="m 136.37995,99.554947 -6.7e-4,28.289283"
+     id="path21"
+     sodipodi:nodetypes="cc" />
+</svg>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="71.496231"
+   height="70.496231"
+   viewBox="0 0 71.496231 70.496231"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="jesd204_layers2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="8.0000004"
+     inkscape:cx="45.624998"
+     inkscape:cy="31.187498"
+     inkscape:window-width="1920"
+     inkscape:window-height="1121"
+     inkscape:window-x="2391"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:clip-to-page="false">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-20"
+       originy="-4.7518861"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-20,-4.7518861)">
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;fill:#000000"
+       x="42.338017"
+       y="12.614445"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="42.338017"
+         y="12.614445" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.6667px;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="44"
+       y="11"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="44"
+         y="11"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans" /></text>
+    <rect
+       style="fill:#ffa500;fill-opacity:1;stroke:#000000;stroke-width:0.492188;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="71.004044"
+       height="14.755926"
+       x="20.246094"
+       y="4.9979801"
+       ry="3.8757718" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'MS Reference Sans Serif';-inkscape-font-specification:'MS Reference Sans Serif';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:round"
+       x="26.763651"
+       y="15.35512"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="26.763651"
+         y="15.35512"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">Application</tspan></text>
+    <rect
+       style="fill:#809eaf;fill-opacity:1;stroke:#000000;stroke-width:0.492188;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-8"
+       width="71.004044"
+       height="14.755926"
+       x="20.246094"
+       y="23.414019"
+       ry="3.8757718" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'MS Reference Sans Serif';-inkscape-font-specification:'MS Reference Sans Serif';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:round"
+       x="30.615225"
+       y="33.59668"
+       id="text3-6"><tspan
+         sodipodi:role="line"
+         id="tspan3-9"
+         x="30.615225"
+         y="33.59668"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">Transport</tspan></text>
+    <g
+       id="g3-1"
+       transform="translate(-8.751886,36.832076)"
+       style="fill:#809eaf;fill-opacity:1">
+      <rect
+         style="fill:#809eaf;fill-opacity:1;stroke:#000000;stroke-width:0.492188;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1-1"
+         width="71.004044"
+         height="14.755926"
+         x="28.99798"
+         y="4.9979801"
+         ry="3.8757718" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:round"
+         x="53.049446"
+         y="16.42804"
+         id="text3-5"><tspan
+           sodipodi:role="line"
+           id="tspan3-7"
+           x="53.049446"
+           y="16.42804">Link</tspan></text>
+    </g>
+    <rect
+       style="fill:#809eaf;fill-opacity:1;stroke:#000000;stroke-width:0.492188;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-6"
+       width="71.004044"
+       height="14.755926"
+       x="20.246094"
+       y="60.246094"
+       ry="3.8757718" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'MS Reference Sans Serif';-inkscape-font-specification:'MS Reference Sans Serif';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linejoin:round"
+       x="34.331383"
+       y="70.603233"
+       id="text3-1"><tspan
+         sodipodi:role="line"
+         id="tspan3-1"
+         x="34.331383"
+         y="70.603233"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">Physical</tspan></text>
+  </g>
+</svg>

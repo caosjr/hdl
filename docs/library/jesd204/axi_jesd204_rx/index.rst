@@ -100,7 +100,9 @@ Files
 Block Diagram
 -------------
 
-|axi_jesd204_rx block diagram|
+.. image:: axi_jesd204_rx_204c.svg
+   :scale: 100%
+   :align: center
 
 Synthesis Configuration Parameters
 ----------------------------------
@@ -252,7 +254,24 @@ signal, but not the TREADY flow control signal. The behavior of the interface is
 as if the TREADY signal was always asserted. This means as soon as ``rx_valid``
 is asserted a continuous stream of user data must be accepted from ``rx_data``.
 
-|image1|
+.. wavedrom::
+   :align: center
+
+   {
+      signal: [
+         ['RX_DATA',
+            { name: "device_clk", wave: 'P.........' },
+            { name: "rx_data",  wave: "x...======", data: ["D0", "D1", "D2",
+            "D3", "D4", "..."] },
+            { name: 'rx_valid', wave: '0...1.....' },
+         ]
+      ],
+      foot: {
+         text:
+            ['tspan',{dx:'-45'}, 'Link Inicialization', ['tspan', {dx:'60'},
+            'User Data Phase'],],
+         }
+   }
 
 After reset and during link initialization the ``rx_valid`` signal is
 de-asserted. As soon as the User Data Phase is entered the ``rx_valid`` will be
@@ -260,7 +279,9 @@ asserted to indicate that the peripheral is now providing and the processed data
 at the ``rx_data`` signal. The ``rx_valid`` signal stays asserted until the link
 is either deactivated or re-initialized.
 
-|image2|
+.. image:: octets_mapping.svg
+   :scale: 6%
+   :align: right
 
 Typically the ``RX_DATA`` interface is connected to a JESD204 transport layer
 peripheral that de-frames the data and passes it to the application layer. The
@@ -451,9 +472,9 @@ always enabled. The ``CHAR_REPLACEMENT_DISABLE`` (``[1]``) bit controls whether
 alignment character replacement is performed or not. A value of 0 enables
 character replacement and a value of 1 disables it. If character replacement is
 disabled and an alignment character is received
-(:dokuwiki:`/F/ control character
+(:dokuwiki:`/F/
 <resources/fpga/peripherals/jesd204/jesd204_glossary#control_characters>` or
-:dokuwiki:`/A/ control character
+:dokuwiki:`/A/
 <resources/fpga/peripherals/jesd204/jesd204_glossary#control_characters>`)
 a unexpected K-character error is raised.
 
@@ -481,7 +502,18 @@ local-multiblock-clock (LEMC). A setting of 0 indicates that the release
 opportunity is aligned to the LMFC/LEMC edge. A setting of X indicates that it
 trails the LMFC/LEMC edge by X octets.
 
-|BUFFER_DEALY timing|
+.. wavedrom::
+   :scale: 100%
+   :align: center
+
+   {
+      signal: [
+         { name: "device_clk", wave: 'P.........' },
+         { name: "LMFC edge",  wave: "l..10.....", node:"...a"},
+         { name: 'Release Opportunity', wave: '0.....10..', node:"......b"},
+      ],
+      edge: ['a~>b BUFFER DELAY/4']
+   }
 
 The ``BUFFER_DELAY`` field must be set to a multiple of 4. Writing a value that
 is not a multiple of 4 will be rounded down to the next multiple of 4. For
@@ -643,14 +675,18 @@ The core does not generates interrupts.
 8B/10B Link
 -----------
 
-|8b10b link layer block diagram|
+.. image:: axi_jesd204_rx_204c_8b10b.svg
+   :scale: 100%
+   :align: center
 
 .. _axi_jesd204_rx_8b10b_link_state_machine:
 
 8B/10B Link State Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image3|
+.. image:: jesd204_rx_state_machine.svg
+   :scale: 100%
+   :align: right
 
 The peripheral can be in one of four main operating phases: RESET, WAIT FOR PHY,
 CGS, or DATA. Upon reset the peripheral starts in the RESET phase. The WAIT FOR
@@ -741,7 +777,9 @@ succeeds that and signalize that through the de-assertion of ``SYNC~`` signal.
 In the below example we have a multi-point link of four endpoints
 (``NUM_LINKS`` = 4):
 
-|image4|
+.. image:: quadmxfe_linkbringup_204b_adc.svg
+   :scale: 100%
+   :align: center
 
 .. note::
     
@@ -790,7 +828,9 @@ Beside the CRC errors the error monitor records invalid end of multiblock, end
 of extended multiblock and invalid sync header errors. The source of every error
 can be masked from the corresponding bit of the ``LINK_CONF3`` register.
 
-|64b66b link layer block diagram|
+.. image:: axi_jesd204_rx_204c_64b66b.svg
+   :scale: 100%
+   :align: center
 
 .. _axi_jesd204_rx_64b66b_link_state_machine:
 
@@ -803,7 +843,9 @@ WAIT BS and BLOCK SYNC phases are used during the initialization of the JESD204
 link. The DATA phase is used during normal operation when user data is received
 across the JESD204 link.
 
-|image5|
+.. image:: jesd204c_rx_state_machine.svg
+   :scale: 100%
+   :align: right
 
 .. _axi_jesd204_rx_reset-phase-1:
 
@@ -856,7 +898,9 @@ multiblocks by tracking well defined markers in the sync header stream. Once the
 boundary is detected for each lane the corresponding data stream can be aligned
 across all enabled lanes. This is done through the elastic buffer.
 
-|image6|
+.. image:: jesd204c_rx_emb_state_machine.svg
+   :scale: 100%
+   :align: right
 
 EMB INIT State
 ^^^^^^^^^^^^^^
@@ -899,7 +943,9 @@ device clock cycle (each beat) so an integer number of samples can be
 delivered/consumed to/from the application layer aligned to SYSREF ensuring
 deterministic latency in modes where N'=12 or F!=1,2,4.
 
-|image7|
+.. image:: dual_clock_operation.svg
+   :scale: 60%
+   :align: center
 
 The gearbox ratio corresponds with the ratio of the link layer interface data
 width towards physical layer and transport layer in octets. The interface width
