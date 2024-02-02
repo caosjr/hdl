@@ -34,7 +34,9 @@ Files
 Block Diagram
 -------------
 
-|AD-IP-JESD204-TRANSPORT-ADC block diagram|
+.. image:: ad_ip_jesd204_transport_adc.svg
+  :scale: 100%
+  :align: center
 
 Synthesis Configuration Parameters
 ----------------------------------

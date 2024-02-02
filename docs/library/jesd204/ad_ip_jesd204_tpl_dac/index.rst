@@ -36,7 +36,9 @@ Files
 Block Diagram
 -------------
 
-|image1|
+.. image:: ad_ip_jesd204_transport_dac.svg
+  :scale: 100%
+  :align: center
 
 Synthesis Configuration Parameters
 ----------------------------------

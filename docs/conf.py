@@ -20,8 +20,7 @@ extensions = [
 	"sphinx.ext.todo",
 	"sphinx.ext.viewcode",
 	"sphinxcontrib.wavedrom",
-	"adi_links",
-	"adi_hdl_parser"
+    "adi_doctools"
 ]
 
 templates_path = ['sources/template']
