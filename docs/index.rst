@@ -23,8 +23,10 @@ HDL Reference Designs
    :caption: Projects
    :hidden:
 
+   AD4134-FMC <projects/ad4134_fmc/index>
    AD469X-FMC <projects/ad469x_fmc/index>
    AD5766-SDZ <projects/ad5766_sdz/index>
+   AD7134-FMC <projects/ad7134_fmc/index>	
    AD719X-ASDZ <projects/ad719x_asdz/index>
    AD738X-FMC <projects/ad738x_fmc/index>
    AD7616-SDZ <projects/ad7616_sdz/index>
@@ -32,6 +34,8 @@ HDL Reference Designs
    AD9434-FMC <projects/ad9434_fmc/index>
    AD9783-EBZ <projects/ad9783_ebz/index>
    ADAQ7980-SDZ <projects/adaq7980_sdz/index>
+   CN0540 <projects/cn0540/index>
+   CN0561 <projects/cn0561/index>
 
 .. role:: red
 .. role:: green
