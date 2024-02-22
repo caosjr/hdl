@@ -4,7 +4,6 @@ JESD204B/C Link Receive Peripheral
 ================================================================================
 
 .. hdl-component-diagram::
-   :path: library/jesd204/axi_jesd204_rx
 
 The Analog Devices JESD204B/C Link Receive Peripheral implements the link layer
 handling of a JESD204 receive logic device. Implements the 8B/10B based link
@@ -111,7 +110,6 @@ AXI JESD204 RX Synthesis Configuration Parameters
 --------------------------------------------------------------------------------
 
 .. hdl-parameters::
-   :path: library/jesd204/axi_jesd204_rx
 
    * - ID
      - Instance identification number.
@@ -152,7 +150,6 @@ AXI JESD204 RX Signal and Interface Pins
 --------------------------------------------------------------------------------
 
 .. hdl-interfaces::
-    :path: library/jesd204/axi_jesd204_rx
 
     * - s_axi_aclk
       - All ``S_AXI`` signals and ``irq`` are synchronous to this clock.

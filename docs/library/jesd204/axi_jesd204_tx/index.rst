@@ -4,8 +4,6 @@ JESD204B/C Link Transmit Peripheral
 ================================================================================
 
 .. hdl-component-diagram::
-   :path: library/jesd204/axi_jesd204_tx
-
 
 The Analog Devices JESD204B/C Link Transmit Peripheral implements the link layer
 handling of a JESD204 transmit logic device. Implements the 8B/10B based link
@@ -111,7 +109,6 @@ AXI JESD204 TX Synthesis Configuration Parameters
 --------------------------------------------------------------------------------
 
 .. hdl-parameters::
-   :path: library/jesd204/axi_jesd204_tx
 
    * - ID
      - Instance identification number.
@@ -152,7 +149,6 @@ AXI JESD204 TX Signal and Interface Pins
 --------------------------------------------------------------------------------
 
 .. hdl-interfaces::
-    :path: library/jesd204/axi_jesd204_tx
 
     * - s_axi_aclk
       - All ``S_AXI`` signals and ``irq`` are synchronous to this clock.

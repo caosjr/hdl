@@ -4,7 +4,6 @@ DAC JESD204B/C Transport Peripheral
 ================================================================================
 
 .. hdl-component-diagram::
-   :path: library/jesd204/ad_ip_jesd204_tpl_dac
 
 The DAC JESD204B/C Transport Peripheral (AD-IP-JESD204-TRANSPORT-DAC) implements
 the transport level handling of a JESD204B/C transmitter device. It is

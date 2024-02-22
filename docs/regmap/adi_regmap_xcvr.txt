@@ -1,5 +1,5 @@
 TITLE
-Xilinx XCVR (axi_xcvr) Regmap
+Xilinx XCVR (axi_xcvr)
 XCVR
 ENDTITLE
 
@@ -658,7 +658,7 @@ ENDFIELD
 ############################################################################################
 
 TITLE
-Intel XCVR (axi_xcvr) Regmap
+Intel XCVR (axi_xcvr)
 INTEL_XCVR
 ENDTITLE
 
