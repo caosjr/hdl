@@ -18,12 +18,12 @@ register map.
 Features
 --------------------------------------------------------------------------------
 
--  ADI high-speed ADC compatible JESD204B/C data de-framing
--  Test-pattern checker
+-  ADI high-speed ADC compatible JESD204B/C data de-framing;
+-  Test-pattern checker;
 -  Per-channel data formatting (sign-extension, two's complement to offset
-   binary)
+   binary);
 -  Runtime re-configurability through memory-mapped register interface
-   (AXI4-Lite)
+   (AXI4-Lite).
 
 
 Files
@@ -85,7 +85,7 @@ Signal and Interface Pins
    * - s_axi
      - Memory mapped AXI-lite bus that provides access to modules register map.
    * - link
-     - link_data: JESD204 link data interface (link layer interface)
+     - link_data: JESD204 link data interface (link layer interface).
    * - link_clk
      - :dokuwiki:`Device clock <resources/fpga/peripherals/jesd204/jesd204_glossary#clocks>`
        for the JESD204B interface of the Link Layer Interface. Must
@@ -200,7 +200,9 @@ PRBS Check
 The block can monitor and compare the incoming deframed raw data against
 PN9,PN23 and PN7, PN15 (if enabled) patterns selected by the ``ADC_PN_SEL``
 field of ``REG_CHAN_CNTRL_3`` register.
-.. it is missing PN31, because it does not exist on the source code
+
+.. 
+  it is missing PN31, because it does not exist on the source code
 
 .. list-table::
    :header-rows: 1
@@ -273,7 +275,7 @@ supported by the peripheral: 1, 2, 4
 
 -  Starting from
    `this <https://github.com/analogdevicesinc/hdl/commit/454b900f90081fb95be857114e768f662178c8bd>`__
-   commit this restriction no longer applies
+   commit this restriction no longer applies.
 
 .. _ad_ip_jesd204_tpl_adc_supported_devices:
 
@@ -285,58 +287,58 @@ Supported Devices
 JESD204B Analog-to-Digital Converters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :adi:`AD6673 <en/products/AD6673>`: 80 MHz Bandwidth, Dual IF Receiver
--  :adi:`AD6674 <en/products/AD6674>`: 385 MHz BW IF Diversity Receiver
--  :adi:`AD6676 <en/products/AD6676>`: Wideband IF Receiver Subsystem
--  :adi:`AD6677 <en/products/AD6677>`: 80 MHz Bandwidth, IF Receiver
--  :adi:`AD6684 <en/products/AD6684>`: 135 MHz Quad IF Receiver
+-  :adi:`AD6673 <en/products/AD6673>`: 80 MHz Bandwidth, Dual IF Receiver;
+-  :adi:`AD6674 <en/products/AD6674>`: 385 MHz BW IF Diversity Receiver;
+-  :adi:`AD6676 <en/products/AD6676>`: Wideband IF Receiver Subsystem;
+-  :adi:`AD6677 <en/products/AD6677>`: 80 MHz Bandwidth, IF Receiver;
+-  :adi:`AD6684 <en/products/AD6684>`: 135 MHz Quad IF Receiver;
 -  :adi:`AD6688 <en/products/AD6688>`: RF Diversity and 1.2GHz BW Observation 
-   Receiver
+   Receiver;
 -  :adi:`AD9208 <en/products/AD9208>`: 14-Bit, 3GSPS, JESD204B, Dual 
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9234 <en/products/AD9234>`: 12-Bit, 1 GSPS/500 MSPS JESD204B, Dual
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9250 <en/products/AD9250>`: 14-Bit, 170 MSPS/250 MSPS, JESD204B, Dual
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9625 <en/products/AD9625>`: 12-Bit, 2.6 GSPS/2.5 GSPS/2.0 GSPS, 
-   1.3 V/2.5 V Analog-to-Digital Converter
+   1.3 V/2.5 V Analog-to-Digital Converter;
 -  :adi:`AD9656 <en/products/AD9656>`: Quad, 16-Bit, 125 MSPS JESD204B 1.8 V
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9680 <en/products/AD9680>`: 14-Bit, 1.25 GSPS/1 GSPS/820 MSPS/500 
-   MSPS JESD204B, Dual Analog-to-Digital Converter
+   MSPS JESD204B, Dual Analog-to-Digital Converter;
 -  :adi:`AD9683 <en/products/AD9683>`: 14-Bit, 170 MSPS/250 MSPS, JESD204B,
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9690 <en/products/AD9690>`: 14-Bit, 500 MSPS / 1 GSPS JESD204B,
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9691 <en/products/AD9691>`: 14-Bit, 1.25 GSPS JESD204B, Dual 
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9694 <en/products/AD9694>`: 14-Bit, 500 MSPS JESD204B, Quad 
-   Analog-to-Digital Converter
+   Analog-to-Digital Converter;
 -  :adi:`AD9083 <en/products/AD9083>`: 16-Channel, 125 MHz Bandwidth, 
-   JESD204B Analog-to-Digital Converter
+   JESD204B Analog-to-Digital Converter.
 
 
 JESD204B RF Transceivers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :adi:`AD9371 <en/products/AD9371>`: SDR Integrated, Dual RF Transceiver with 
-   Observation Path
+   Observation Path;
 -  :adi:`AD9375 <en/products/AD9375>`: SDR Integrated, Dual RF Transceiver with 
-   Observation Path and DPD
+   Observation Path and DPD;
 -  :adi:`ADRV9009 <en/products/ADRV9009>`: SDR Integrated, Dual RF Transceiver 
-   with Observation Path
--  :adi:`ADRV9008-1 <en/products/ADRV9008-1>`: SDR Integrated, Dual RF Receiver
+   with Observation Path;
+-  :adi:`ADRV9008-1 <en/products/ADRV9008-1>`: SDR Integrated, Dual RF Receiver;
 -  :adi:`ADRV9008-2 <en/products/ADRV9008-2>`: SDR Integrated, Dual RF Transmitter 
-   with Observation Path
+   with Observation Path.
 
 
 JESD204B/C Mixed-Signal Front Ends
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :adi:`AD9081 <en/products/AD9081>`: MxFE™ Quad, 16-Bit, 12GSPS RFDAC and Quad, 12-Bit,
-   4GSPS RFADC
+   4GSPS RFADC;
 -  :adi:`AD9082 <en/products/AD9082>`: MxFE™ QUAD, 16-Bit, 12GSPS RFDAC and DUAL, 12-Bit,
-   6GSPS RFADC
+   6GSPS RFADC.
 
 
 More Information

@@ -232,10 +232,15 @@ Channel DRP Interface
    * - Pin
      - Type
      - Description
-   * - ``up_ch_*``
+   * - ``up_rx_*``
      - ``IO``
-     - The channel DRP interface, must be connected to the equivalent DRP ports
-       of AXI_ADXCVR. This is a channel interface, one per each transceiver
+     - The RX channel DRP interface, must be connected to the equivalent DRP ports
+       of AXI_ADXCVR. This is a channel interface, one per each RX transceiver
+       lane.
+   * - ``up_tx_*``
+     - ``IO``
+     - The TX channel DRP interface, must be connected to the equivalent DRP ports
+       of AXI_ADXCVR. This is a channel interface, one per each TX transceiver
        lane.
 
 

@@ -28,17 +28,17 @@ To form a complete JESD204 transmit logic device it has to be combined with a
 Features
 --------------------------------------------------------------------------------
 
-*  Backwards compatibility with JESD202B
-*  64B/66B link layer defined in JESD204C
-*  Subclass 0 and Subclass 1 support
-*  Deterministic Latency (for Subclass 1 operation)
-*  Runtime re-configurability through memory-mapped register interface (AXI4)
-*  Interrupts for event notification
-*  Diagnostics
-*  Max Lanerate with 8B/10B mode: 15 Gbps
-*  Max Lanerate with 64B/66B mode: 32 Gbps
-*  Low Latency
-*  Independent per lane enable/disable
+*  Backwards compatibility with JESD204B;
+*  64B/66B link layer defined in JESD204C;
+*  Subclass 0 and Subclass 1 support;
+*  Deterministic Latency (for Subclass 1 operation);
+*  Runtime re-configurability through memory-mapped register interface (AXI4);
+*  Interrupts for event notification;
+*  Diagnostics;
+*  Max Lanerate with 8B/10B mode: 15 Gbps;
+*  Max Lanerate with 64B/66B mode: 32 Gbps;
+*  Low Latency;
+*  Independent per lane enable/disable.
 
 
 Utilization
@@ -122,7 +122,7 @@ AXI JESD204 TX Synthesis Configuration Parameters
        |  2 - 64B/66B mode.
    * - DATA_PATH_WIDTH
      - Data path width in bytes. Set it 4 in case of 8B/10B, 8 in case of
-       64B/66B
+       64B/66B.
 
 
 JESD204 TX Synthesis Configuration Parameters
@@ -371,9 +371,9 @@ processed in parallel on each lane and affects the restrictions of possible
 values for certain runtime configuration registers. The value is encoded as the
 log2() of the data path width. Possible values are:
 
-#. Internal data path width is 2
-#. Internal data path width is 4
-#. Internal data path width is 8
+#. Internal data path width is 2;
+#. Internal data path width is 4;
+#. Internal data path width is 8.
 
 
 Interrupt Handling
@@ -587,15 +587,15 @@ values are:
 
 Possible values for a 8B/10B link are:
 
--  0: WAIT phase
--  1: CGS phase
--  2: ILAS phase
--  3: DATA phase
+-  0: WAIT phase;
+-  1: CGS phase;
+-  2: ILAS phase;
+-  3: DATA phase.
 
 Possible values for a 64B/66B link are:
 
--  0: WAIT phase
--  3: DATA phase
+-  0: WAIT phase;
+-  3: DATA phase.
 
 The ``STATUS_SYNC`` (``[4]``) field represents the raw state of the external
 SYNC~ and can be used to monitor whether the JESD204B converter device has
@@ -607,9 +607,9 @@ Manual Synchronization Request
 
 For 8B/10B links the ``MANUAL_SYNC_REQUEST`` (``0x248``) register can be used to
 transition the link state from the WAIT phase to the CGS phase in the absence of
-an external synchronization request. This is can be useful during testing when
-the peripheral is not connected to a JESD204B receiver device, but for example
-to a signal analyzer.
+an external synchronization request. This is useful for test cases where the
+peripheral is connected to signal analyzer instead of a JESD204B receiver 
+device.
 
 Writing a 1 to this register will trigger a manual synchronization request.
 Writing the register while the link is disabled or writing a 0 to the register
@@ -708,11 +708,11 @@ on each of the ``TX_PHYn`` interfaces.
 The peripheral will stay in the CGS phase until all of following conditions are
 satisfied:
 
--  The synchronization request is de-asserted
+-  The synchronization request is de-asserted;
 -  The CGS phase has lasted for at least the configured minimum CGS duration (1
-   frame + 9 octets by default).
+   frame + 9 octets by default);
 -  The end of a multi-frame is reached (This means the next phase will start at
-   the beginning of a multi-frame).
+   the beginning of a multi-frame);
 -  The SYSREF signal has been captured and the LMFC is properly aligned.
 
 If the peripheral is configured for continuous CGS operation it will stay in the
@@ -835,15 +835,15 @@ In the below example we have a multi-point link of four endpoints
 The steps of the link bring-up are presented below:
 
 -  **1** - Link transmit peripheral is enabled, will start to send ``CGS``
-   characters on all lanes regardless of the state of the ``SYNC~`` signal
+   characters on all lanes regardless of the state of the ``SYNC~`` signal;
 -  **2,3,4,5** - JESD Receive block of ADC enabled, its corresponding ``SYNC~``
    pin is pulled low. The timing depends on the software implementation that
-   controls the ADC.
+   controls the ADC;
 -  **6** - In Subclass 1 (SC1) ``SYSREF`` is captured and ``LMFC`` in the
-   FPGA and converter device is adjusted.
+   FPGA and converter device is adjusted;
 -  **7** - Once the ``CGS`` characters are received correctly, on the next
    Frame clock boundary in SC0 or ``LMFC`` boundary in SC1 the ``SYNC~`` is
-   de-asserted
+   de-asserted;
 -  **8** - Once all enabled endpoints (not masked by ``MULTI_LINK_DISABLE``)
    de-assert the ``SYNC~`` signal, on the next Frame clock boundary for SC0 or
    the next ``LMFC`` boundary for SC1, the transmit peripheral will start
@@ -909,8 +909,8 @@ TPL_DATA_PATH_WIDTH synthesis parameter.
 
 The following rules apply:
 
--  TPL_DATA_PATH_WIDTH >= DATA_PATH_WIDTH
--  TPL_DATA_PATH_WIDTH = m x F; where m is a positive integer, power of 2
+-  TPL_DATA_PATH_WIDTH >= DATA_PATH_WIDTH;
+-  TPL_DATA_PATH_WIDTH = m x F; where m is a positive integer, power of 2.
 
 The link clock and device clock ratio should be the inverse of the
 DATA_PATH_WIDTH : TPL_DATA_PATH_WIDTH ratio.
@@ -955,16 +955,16 @@ The following lists where the peripheral deviates from the standard:
 -  No subclass 2 support. JESD204B subclass 2 has due to its implementation
    details restricted applicability and is seldom a viable option for a modern
    high-speed data converter system. To achieve deterministic latency it is
-   recommend to use subclass 1 mode.
+   recommend to use subclass 1 mode;
 -  Reduced number of octets-per-frame settings. The JESD204B standard allows for
-   any value between 1 and 256 to be used for the number of octets-per-frame.
+   any value between 1 and 256 to be used for the number of octets-per-frame;
 -  The following octets-per-frame values are supported by the peripheral: 1, 2,
-   4 and 8.(No longer applies starting from 1.06.a)
+   4 and 8.(No longer applies starting from 1.06.a);
 -  Reduced number of frames-per-multi-frame settings. The following values are
    supported by the peripheral: 1-32, with the additional requirement that F*K
-   is a multiple of 4. In addition F*K needs to be in the range of 4-256.
+   is a multiple of 4. In addition F*K needs to be in the range of 4-256;
 -  No support for alignment character replacement when scrambling is
-   disabled.(No longer applies starting from 1.06.a)
+   disabled.(No longer applies starting from 1.06.a).
 
 
 .. _axi_jesd204_tx_supported_devices:
@@ -977,56 +977,56 @@ JESD204B Digital-to-Analog Converters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :adi:`AD9135 <en/products/AD9135>`: Dual, 11-Bit, high dynamic, 2.8 GSPS, 
-   TxDAC+® Digital-to-Analog Converter
+   TxDAC+® Digital-to-Analog Converter;
 -  :adi:`AD9136 <en/products/AD9136>`: Dual, 16-Bit, 2.8 GSPS, TxDAC+® 
-   Digital-to-Analog Converter
+   Digital-to-Analog Converter;
 -  :adi:`AD9144 <en/products/AD9144>`: Quad, 16-Bit, 2.8 GSPS, TxDAC+® 
-   Digital-to-Analog Converter
+   Digital-to-Analog Converter;
 -  :adi:`AD9152 <en/products/AD9152>`: Dual, 16-Bit, 2.25 GSPS, TxDAC+ 
-   Digital-to-Analog Converter
+   Digital-to-Analog Converter;
 -  :adi:`AD9154 <en/products/AD9154>`: Quad, 16-Bit, 2.4 GSPS, TxDAC+® 
-   Digital-to-Analog Converter
+   Digital-to-Analog Converter;
 -  :adi:`AD9161 <en/products/AD9161>`: 11-Bit, 12 GSPS, RF Digital-to-Analog 
-   Converter
+   Converter;
 -  :adi:`AD9162 <en/products/AD9162>`: 16-Bit, 12 GSPS, RF Digital-to-Analog 
-   Converter
+   Converter;
 -  :adi:`AD9163 <en/products/AD9163>`: 16-Bit, 12 GSPS, RF DAC and Digital 
-   Upconverter
+   Upconverter;
 -  :adi:`AD9164 <en/products/AD9164>`: 16-Bit, 12 GSPS, RF DAC and Direct 
-   Digital Synthesizer
+   Digital Synthesizer;
 -  :adi:`AD9172 <en/products/AD9172>`: Dual, 16-Bit, 12.6 GSPS RF DAC with 
-   Channelizers
+   Channelizers;
 -  :adi:`AD9173 <en/products/AD9173>`: Dual, 16-Bit, 12.6 GSPS RF DAC with 
-   Channelizers
+   Channelizers;
 -  :adi:`AD9174 <en/products/AD9174>`: Dual, 16-Bit, 12.6 GSPS RF DAC and Direct 
-   Digital Synthesizer
+   Digital Synthesizer;
 -  :adi:`AD9175 <en/products/AD9175>`: Dual, 11-Bit/16-Bit, 12.6 GSPS RF DAC 
-   with Wideband Channelizers
+   with Wideband Channelizers;
 -  :adi:`AD9176 <en/products/AD9176>`: Dual, 16-Bit, 12.6 GSPS RF DAC with 
-   Wideband Channelizers
+   Wideband Channelizers.
 
 
 JESD204B RF Transceivers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :adi:`AD9371 <en/products/AD9371>`: SDR Integrated, Dual RF Transceiver with 
-   Observation Path
+   Observation Path;
 -  :adi:`AD9375 <en/products/AD9375>`: SDR Integrated, Dual RF Transceiver with 
-   Observation Path and DPD
+   Observation Path and DPD;
 -  :adi:`ADRV9009 <en/products/ADRV9009>`: SDR Integrated, Dual RF Transceiver 
-   with Observation Path
--  :adi:`ADRV9008-1 <en/products/ADRV9008-1>`: SDR Integrated, Dual RF Receiver
+   with Observation Path;
+-  :adi:`ADRV9008-1 <en/products/ADRV9008-1>`: SDR Integrated, Dual RF Receiver;
 -  :adi:`ADRV9008-2 <en/products/ADRV9008-2>`: SDR Integrated, Dual RF Transmitter 
-   with Observation Path
+   with Observation Path.
 
 
 JESD204B/C Mixed-Signal Front Ends
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :adi:`AD9081 <en/products/AD9081>`: MxFE™ Quad, 16-Bit, 12GSPS RFDAC and 
-   Quad, 12-Bit, 4GSPS RFADC
+   Quad, 12-Bit, 4GSPS RFADC;
 -  :adi:`AD9082 <en/products/AD9082>`: MxFE™ QUAD, 16-Bit, 12GSPS RFDAC and 
-   DUAL, 12-Bit, 6GSPS RFADC
+   DUAL, 12-Bit, 6GSPS RFADC.
 
 
 Technical Support

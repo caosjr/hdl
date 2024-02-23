@@ -28,18 +28,18 @@ To form a complete JESD204 receive logic device it has to be combined with a
 Features
 --------------------------------------------------------------------------------
 
--  Backwards compatibility with JESD202B
--  64B/66B link layer defined in JESD204C
--  Subclass 0 and Subclass 1 support
--  Deterministic Latency (for Subclass 1 operation)
+-  Backwards compatibility with JESD204B;
+-  64B/66B link layer defined in JESD204C;
+-  Subclass 0 and Subclass 1 support;
+-  Deterministic Latency (for Subclass 1 operation);
 -  Runtime re-configurability through memory-mapped register interface
-   (AXI4-Lite)
--  Interrupts for event notification
--  Diagnostics
--  Max Lanerate with 8B/10B mode: 15 Gbps
--  Max Lanerate with 64B/66B mode: 32 Gbps
--  Low Latency
--  Independent per lane enable/disable
+   (AXI4-Lite);
+-  Interrupts for event notification;
+-  Diagnostics;
+-  Max Lanerate with 8B/10B mode: 15 Gbps;
+-  Max Lanerate with 64B/66B mode: 32 Gbps;
+-  Low Latency;
+-  Independent per lane enable/disable.
 
 
 Utilization
@@ -118,11 +118,11 @@ AXI JESD204 RX Synthesis Configuration Parameters
    * - NUM_LINKS
      - Maximum number of links supported by the peripheral.
    * - LINK_MODE
-     - |  Decoder selection of the link layer.
-       |  1 - 8B/10B mode
-       |  2 - 64B/66B mode
+     - |  Decoder selection of the link layer:
+       |  1 - 8B/10B mode;
+       |  2 - 64B/66B mode.
    * - DATA_PATH_WIDTH
-     - Data path width in bytes. Set it 4 in case of 8B/10B, 8 in case of
+     - Data path width in bytes. Set it to 4 in case of 8B/10B, 8 in case of
        64B/66B
 
 
@@ -379,9 +379,9 @@ processed in parallel on each lane and affects the restrictions of possible
 values for certain runtime configuration registers. The value is encoded as the
 log2() of the data path width. Possible values are:
 
-#. Internal data path width is 2
-#. Internal data path width is 4
-#. Internal data path width is 8
+#. Internal data path width is 2;
+#. Internal data path width is 4;
+#. Internal data path width is 8.
 
 The ``SYNTH_ELASTIC_BUFFER_SIZE`` (``0x040``) register describes the maximum
 amount of octets that the elastic buffer can hold. This puts a limit on the
@@ -569,14 +569,13 @@ The ``SYSREF_LMFC_OFFSET`` (``0x104``) register allows to modify the offset
 between the SYSREF rising edge and the rising edge of the LMFC/LEMC.
 
 For optimal operation it is recommended that all device on a JESD204 link should
-be configured in a way so that the total offset between
-
-The value of the ``SYSREF_LMFC_OFFSET`` register must be set to a value smaller
-than the configured number of octets-per-multiframe (``OCTETS_PER_MULTIFRAME``),
+be configured in a way so that the total offset between the value of the 
+``SYSREF_LMFC_OFFSET`` register must be set to a value smaller than the 
+configured number of octets-per-multiframe (``OCTETS_PER_MULTIFRAME``),
 otherwise undefined behavior might occur.
 
 The ``SYSREF_STATUS`` (``0x108``) register allows to monitor the status of the
-SYSREF signals. ''SYSREF_DETECTED ``(``\ [0]'') bit indicates that the
+SYSREF signals. ``SYSREF_DETECTED`` (``[0]``) bit indicates that the
 peripheral as observed a SYSREF event. The ``SYSREF_ALIGNMENT_ERROR`` (``[1]``)
 bit indicates that a SYSREF event has been observed which was unaligned, in
 regards to the LMFC/LEMC period, to a previously recorded SYSREF event.
@@ -603,23 +602,23 @@ depending on the selected decoder.
 
 Possible values for a 8B/10B link are:
 
--  RESET (0x0): The link is currently disabled
+-  RESET (0x0): The link is currently disabled;
 -  WAIT FOR PHY (0x1): The controller waits for the PHY level component to be
-   ready
+   ready;
 -  CGS (0x2): The controller is waiting for one or more lanes to complete the
-   CGS phase
+   CGS phase;
 -  DATA (0x3): All lanes are in the data phase and the link is properly
-   established
+   established.
 
 Possible values for a 64B/66B link are:
 
--  RESET (0x0): The link is currently disabled
+-  RESET (0x0): The link is currently disabled;
 -  WAIT BLOCK SYNC (0x1): The controller waits for all enabled lanes to reach
-   sync header alignment.
+   sync header alignment;
 -  BLOCK SYNC (0x2): All enabled lanes from the PHY reached sync header
-   alignment phase.
+   alignment phase;
 -  DATA (0x3): All enabled lanes reached the multi-block synchronization phase,
-   elastic buffer released the data and the link is properly established
+   elastic buffer released the data and the link is properly established.
 
 The state of each individual lane can be queried from the 
 :ref:`lane status <axi_jesd204_rx_lane_status>` registers.
@@ -640,9 +639,9 @@ indicates the current state of the lane.
 The ``CGS_STATE`` (``[1:0]``) indicates the current state of the lane code group
 synchronization:
 
--  INIT (0x0): Lane is not synchronized.
+-  INIT (0x0): Lane is not synchronized;
 -  CHECK (0x1): Lane is in the process of synchronizing, at least some /K/
-   synchronization characters have been observed.
+   synchronization characters have been observed;
 -  DATA (0x2): Lane is synchronized and ready to receive data.
 
 The ``IFS_READY`` (``[4]``) bit indicates that initial frame synchronization has
@@ -661,11 +660,11 @@ The ``EMB_STATE`` (``[10:8]``) indicates the current state of the Extended
 Multi-Block alignment state machine:
 
 -  EMB_INIT (3'b001): Wait for sync header alignment and for an end of extended
-   multiblock (EoEMB) indicator.
+   multiblock (EoEMB) indicator;
 -  EMB_HUNT (3'b010): Keep track and monitor consecutive EoEMBs until a
-   threshold is reached.
+   threshold is reached;
 -  EMB_LOCK (3'b100): Asserted by receiver to indicate that extended multiblock
-   alignment has been achieved
+   alignment has been achieved.
 
 
 8B/10B Link ILAS Configuration Data
@@ -776,7 +775,7 @@ will transmit transport layer data at the RX_DATA port. When the peripheral
 enters the DATA phase the ``valid`` signal of the ``RX_DATA`` interface will be
 asserted to indicate that transport layer data is now available.
 
-By default the data received on each lane will is descrambled. Descrambling can
+By default the data received on each lane is descrambled. Descrambling can
 optionally be disabled via the register map configuration interface.
 Descrambling is enabled or disabled for all lanes equally.
 
@@ -834,18 +833,18 @@ The steps of the link bring-up are presented below:
 *  **1** - Link receive peripheral is enabled, will assert its ``SYNC~`` signal
    to indicate to the endpoints it is ready to receive and align to the ``CGS``
    characters. All ``SYNC~`` signal to all enabled endpoints assert in the same
-   time.
+   time;
 *  **2,3,4,5** - JESD transmit block of DAC enabled, will start sending ``CGS``
    characters until its ``SYNC~`` pin is not pulled low. The timing depends on
-   the software implementation that controls the DAC.
+   the software implementation that controls the DAC;
 *  **6** - In Subclass 1 (SC1) ``SYSREF`` is captured and ``LMFC`` in the
-   FPGA and converter device is adjusted.
+   FPGA and converter device is adjusted;
 *  **7** - Once the ``CGS`` characters are received correctly on all enabled
    lanes, on the next Frame clock boundary in SC0 or ``LMFC`` boundary in SC1
    the ``SYNC~`` is de-asserted. All ``SYNC~`` signal to all enabled endpoints
    de-assert in the same time. **In SC1 if** ``SYSREF`` **is not captured the
    link receive peripheral will stay in CGS state and will keep** ``SYNC~``
-   **asserted.**
+   **asserted.**;
 *  **8** - Once all enabled endpoints (not masked by ``MULTI_LINK_DISABLE``)
    observe the de-assert of the ``SYNC~`` signal, on the next Frame clock
    boundary for SC0 or the next ``LMFC`` boundary for SC1, will start sending
@@ -1009,8 +1008,8 @@ TPL_DATA_PATH_WIDTH synthesis parameter.
 
 The following rules apply:
 
--  TPL_DATA_PATH_WIDTH >= DATA_PATH_WIDTH
--  TPL_DATA_PATH_WIDTH = m x F; where m is a positive integer, power of 2
+-  TPL_DATA_PATH_WIDTH >= DATA_PATH_WIDTH;
+-  TPL_DATA_PATH_WIDTH = m x F; where m is a positive integer, power of 2.
 
 The link clock and device clock ratio should be the inverse of the
 DATA_PATH_WIDTH : TPL_DATA_PATH_WIDTH ratio.
@@ -1043,11 +1042,11 @@ exists based on the following formula:
 
 Where:
 
--  Buffer Delay - register 0x240 of the core
--  F*K - is the size of a multiframe in octets
+-  Buffer Delay - register 0x240 of the core;
+-  F*K - is the size of a multiframe in octets;
 -  ‘latency regs’ - is the measured latency of each lane observed during
    consecutive link bring-ups measured for all Rx links, see regs (0x304 +
-   n*0x20) where n = 0..L-1 ; L is number of lanes
+   n*0x20) where n = 0..L-1 ; L is number of lanes;
 -  TPLDW - TPL datapath width in octets. Can be read from the
    ``SYNTH_DATA_PATH_WIDTH`` (0x14) reg ``TPL_DATA_PATH_WIDTH`` field.
 
@@ -1090,16 +1089,16 @@ The following lists where the peripheral deviates from the standard:
 -  No subclass 2 support. JESD204 subclass 2 has due to its implementation
    details restricted applicability and is seldom a viable option for a modern
    high-speed data converter system. To achieve deterministic latency it is
-   recommend to use subclass 1 mode.
+   recommend to use subclass 1 mode;
 -  Reduced number of octets-per-frame settings. The JESD204 standard allows for
-   any value between 1 and 256 to be used for the number of octets-per-frame.
+   any value between 1 and 256 to be used for the number of octets-per-frame;
 -  The following octets-per-frame are supported by the peripheral: 1, 2, 4 and
-   1. (No longer applies starting from 1.07.a)
+   1. (No longer applies starting from 1.07.a);
 -  Reduced number of frames-per-multi-frame settings. The following values are
    supported by the peripheral: 1-32, with the additional requirement that F*K
-   is a multiple of 4. In addition F*K needs to be in the range of 4-256.
+   is a multiple of 4. In addition F*K needs to be in the range of 4-256;
 -  No support for alignment character replacement when scrambling is disabled.
-   (No longer applies starting from 1.07.a)
+   (No longer applies starting from 1.07.a).
 
 
 Additional Information
